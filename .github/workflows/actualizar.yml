@@ -1,0 +1,28 @@
+# Actualiza los datos y el dashboard cada 3 dias, sin necesidad de tener el PC encendido.
+name: Actualizar predicciones NBA
+
+on:
+  schedule:
+    - cron: "0 10 */3 * *"   # cada 3 dias a las 10:00 UTC (11:00/12:00 en Espana)
+  workflow_dispatch:          # boton "Run workflow" para lanzarlo a mano
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python nba_elo.py --dias 7
+      - name: Guardar resultados en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Actualizacion automatica $(date -u +%Y-%m-%d)"
+          git push

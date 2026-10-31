@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Predicciones NBA Elo</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--text:#16181d;--muted:#5f6672;--border:#e3e6eb;
+--accent:#2563eb;--good:#15803d;--bad:#b91c1c;--bar:#dbe6fd;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1115;--panel:#181b21;
+--text:#e8eaed;--muted:#9aa1ac;--border:#2a2f38;--accent:#6ea0ff;--good:#4ade80;--bad:#f87171;--bar:#22324f;}}
+:root[data-theme="dark"]{--bg:#0f1115;--panel:#181b21;--text:#e8eaed;--muted:#9aa1ac;--border:#2a2f38;
+--accent:#6ea0ff;--good:#4ade80;--bad:#f87171;--bar:#22324f;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:17px;margin:0 0 12px}
+.sub{color:var(--muted);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px}
+.kpi .v{font-size:26px;font-weight:650}.kpi .l{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.grid.two{grid-template-columns:3fr 2fr}}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;color:var(--muted);font-weight:500;font-size:12px;padding:6px 8px;border-bottom:1px solid var(--border)}
+td{padding:8px;border-bottom:1px solid var(--border);vertical-align:middle}
+tr.game{cursor:pointer}tr.game:hover td,tr.sel td{background:var(--bar)}
+.prob{position:relative;height:22px;border-radius:4px;background:var(--border);overflow:hidden;min-width:120px}
+.prob span{position:absolute;inset:0 auto 0 0;background:var(--accent);opacity:.85}
+.prob b{position:relative;font-size:12px;padding:0 6px;line-height:22px;color:#fff;mix-blend-mode:normal;text-shadow:0 0 3px rgba(0,0,0,.6)}
+.up{color:var(--good)}.down{color:var(--bad)}.ok{color:var(--good);font-weight:600}.ko{color:var(--bad);font-weight:600}
+.scroll{overflow-x:auto}.chartbox{position:relative;height:280px}
+select{background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 6px}
+.day{font-weight:600;background:var(--bg)!important;font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<h1>Predicciones NBA · modelo Elo</h1>
+<div class="sub" id="upd"></div>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="grid two">
+  <section class="card">
+    <h2>Próximos partidos</h2>
+    <div class="sub" style="margin:-6px 0 10px">Pulsa un partido para ver cómo ha cambiado su probabilidad entre actualizaciones.</div>
+    <div class="scroll" style="max-height:460px;overflow-y:auto"><table id="proximos"></table></div>
+  </section>
+  <section class="card">
+    <h2 id="evoTitle">Evolución de la probabilidad</h2>
+    <div class="chartbox"><canvas id="evoChart"></canvas></div>
+    <div class="sub" id="evoNote" style="margin-top:8px"></div>
+  </section>
+</div>
+
+<div class="grid two" style="margin-top:16px">
+  <section class="card">
+    <h2>Evolución del Elo</h2>
+    <div style="margin-bottom:8px">
+      <select id="t1"></select> <select id="t2"></select> <select id="t3"></select>
+    </div>
+    <div class="chartbox"><canvas id="eloChart"></canvas></div>
+  </section>
+  <section class="card">
+    <h2>Ranking actual</h2>
+    <div class="scroll" style="max-height:340px;overflow-y:auto"><table id="ranking"></table></div>
+  </section>
+</div>
+
+<div class="grid two" style="margin-top:16px">
+  <section class="card">
+    <h2>Acierto acumulado</h2>
+    <div class="chartbox"><canvas id="accChart"></canvas></div>
+  </section>
+  <section class="card">
+    <h2>Últimos resultados</h2>
+    <div class="scroll" style="max-height:300px;overflow-y:auto"><table id="ultimos"></table></div>
+  </section>
+</div>
+</main>
+
+<script>
+const D = /*__DATOS__*/null;
+const nom = t => D.equipos[t] || t;
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmtDia = s => new Date(s + "T12:00:00").toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long"});
+const fmtHora = s => new Date(s.replace("Z",":00Z")).toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"});
+const fmtEjec = s => new Date(s.replace("Z",":00Z")).toLocaleString("es-ES",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+
+document.getElementById("upd").textContent = "Última actualización: " + fmtEjec(D.generado);
+
+// KPIs
+const H = D.historial.map(h => ({...h, p:+h.prob_local, w:+h.pts_local > +h.pts_visit, a:+h.acierto}));
+const n = H.length;
+const acc = n ? H.reduce((s,h)=>s+h.a,0)/n : 0;
+const brier = n ? H.reduce((s,h)=>s+(h.p-(h.w?1:0))**2,0)/n : 0;
+const ult = H.slice(-30); const accUlt = ult.length ? ult.reduce((s,h)=>s+h.a,0)/ult.length : 0;
+document.getElementById("kpis").innerHTML = [
+  [(acc*100).toFixed(1)+"%","Acierto de la temporada"],
+  [(accUlt*100).toFixed(1)+"%","Acierto últimos 30"],
+  [brier.toFixed(3),"Brier (0,25 = azar)"],
+  [n,"Partidos evaluados"],
+  [D.proximos.length,"Partidos por predecir"],
+].map(([v,l])=>`<div class="card kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join("");
+
+// Evolucion de predicciones por partido
+const evo = {};
+D.evolucion_pred.forEach(r => (evo[r.id] ||= []).push(r));
+
+// Proximos partidos
+const tb = document.getElementById("proximos");
+let html = "<tr><th>Hora</th><th>Partido</th><th>Favorito</th><th>Prob.</th><th>Cambio</th></tr>", dia = "";
+D.proximos.forEach(p => {
+  const diaLocal = new Date(p.hora_utc.replace("Z",":00Z")).toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long"});
+  if (diaLocal !== dia) { dia = diaLocal; html += `<tr><td colspan="5" class="day">${dia}</td></tr>`; }
+  const pl = +p.prob_local, favL = pl >= .5, fav = favL ? p.local : p.visitante, pr = favL ? pl : 1-pl;
+  const serie = evo[p.id] || [];
+  let cambio = "<span class='sub'>nuevo</span>";
+  if (serie.length > 1) {
+    const d0 = (+serie[0].prob_local), d = (pl - d0) * (favL ? 1 : -1) * 100;
+    cambio = Math.abs(d) < .5 ? "<span class='sub'>=</span>"
+      : `<span class="${d>0?'up':'down'}">${d>0?'▲':'▼'} ${Math.abs(d).toFixed(0)}</span>`;
+  }
+  html += `<tr class="game" data-id="${p.id}"><td>${fmtHora(p.hora_utc)}</td>
+    <td title="${nom(p.visitante)} @ ${nom(p.local)}">${p.visitante} @ <b>${p.local}</b></td>
+    <td>${fav}</td><td><div class="prob"><span style="width:${(pr*100).toFixed(0)}%"></span><b>${(pr*100).toFixed(0)}%</b></div></td>
+    <td>${cambio}</td></tr>`;
+});
+tb.innerHTML = D.proximos.length ? html : "<tr><td>No hay partidos programados en los próximos días.</td></tr>";
+
+let evoChart;
+function verPartido(id) {
+  document.querySelectorAll("tr.game").forEach(tr => tr.classList.toggle("sel", tr.dataset.id === id));
+  const p = D.proximos.find(x => x.id === id); if (!p) return;
+  const serie = evo[id] || [];
+  document.getElementById("evoTitle").textContent = `${nom(p.visitante)} @ ${nom(p.local)}`;
+  document.getElementById("evoNote").textContent = serie.length < 2
+    ? "Solo hay una actualización para este partido. La línea irá creciendo con cada actualización automática."
+    : `${serie.length} actualizaciones desde ${fmtEjec(serie[0].ejecucion_utc)}.`;
+  const labels = serie.map(s => fmtEjec(s.ejecucion_utc));
+  const ds = [
+    {label:p.local+" (local)", data:serie.map(s=>+(s.prob_local*100).toFixed(1)), borderColor:css("--accent"), backgroundColor:css("--accent"), tension:.2, pointRadius:4},
+    {label:p.visitante, data:serie.map(s=>+((1-s.prob_local)*100).toFixed(1)), borderColor:css("--muted"), backgroundColor:css("--muted"), tension:.2, pointRadius:4, borderDash:[4,3]},
+  ];
+  evoChart?.destroy();
+  evoChart = new Chart(document.getElementById("evoChart"), {type:"line", data:{labels, datasets:ds},
+    options:{maintainAspectRatio:false, scales:{y:{min:0,max:100,ticks:{callback:v=>v+"%",color:css("--muted")},grid:{color:css("--border")}},
+      x:{ticks:{color:css("--muted")},grid:{display:false}}}, plugins:{legend:{labels:{color:css("--text")}},
+      tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y}%`}}}}});
+}
+tb.addEventListener("click", e => { const tr = e.target.closest("tr.game"); if (tr) verPartido(tr.dataset.id); });
+if (D.proximos.length) verPartido(D.proximos[0].id);
+
+// Ranking
+document.getElementById("ranking").innerHTML = "<tr><th>#</th><th>Equipo</th><th>Elo</th></tr>" +
+  D.ratings.map((r,i)=>`<tr><td>${i+1}</td><td>${nom(r.equipo)}</td><td>${(+r.elo).toFixed(0)}</td></tr>`).join("");
+
+// Evolucion Elo
+const eloPorEq = {};
+D.evolucion_elo.forEach(r => (eloPorEq[r.equipo] ||= {})[r.fecha] = +r.elo);
+const fechas = [...new Set(D.evolucion_elo.map(r=>r.fecha))].sort();
+const sels = ["t1","t2","t3"].map(id=>document.getElementById(id));
+const orden = D.ratings.map(r=>r.equipo);
+const defecto = [orden[0], orden[1], orden[orden.length-1]];
+sels.forEach((s,i)=>{ s.innerHTML = "<option value=''>—</option>" + orden.map(t=>`<option value="${t}">${nom(t)}</option>`).join(""); s.value = defecto[i]||""; s.onchange = dibujarElo; });
+const colores = () => [css("--accent"), "#e07b39", "#8b5cf6"];
+let eloChart;
+function dibujarElo() {
+  const ds = sels.map((s,i)=>{ const t = s.value; if(!t) return null; let last = 1500;
+    return {label:t, data:fechas.map(f => (last = eloPorEq[t]?.[f] ?? last)), borderColor:colores()[i], backgroundColor:colores()[i], pointRadius:0, tension:.2}; }).filter(Boolean);
+  eloChart?.destroy();
+  eloChart = new Chart(document.getElementById("eloChart"), {type:"line", data:{labels:fechas.map(f=>f.slice(5)), datasets:ds},
+    options:{maintainAspectRatio:false, scales:{y:{ticks:{color:css("--muted")},grid:{color:css("--border")}}, x:{ticks:{color:css("--muted")},grid:{display:false}}},
+      plugins:{legend:{labels:{color:css("--text")}}}}});
+}
+dibujarElo();
+
+// Acierto acumulado por dia
+const porDia = {}; H.forEach(h => { (porDia[h.fecha] ||= [0,0]); porDia[h.fecha][0]+=h.a; porDia[h.fecha][1]++; });
+const dias = Object.keys(porDia).sort(); let ac=0, tot=0;
+const accSerie = dias.map(d => { ac+=porDia[d][0]; tot+=porDia[d][1]; return +(ac/tot*100).toFixed(1); });
+new Chart(document.getElementById("accChart"), {type:"line",
+  data:{labels:dias.map(d=>d.slice(5)), datasets:[
+    {label:"Modelo", data:accSerie, borderColor:css("--accent"), backgroundColor:css("--accent"), pointRadius:2, tension:.2},
+    {label:"Referencia: siempre el local (~57%)", data:dias.map(()=>57), borderColor:css("--muted"), borderDash:[5,4], pointRadius:0}]},
+  options:{maintainAspectRatio:false, scales:{y:{min:30,max:90,ticks:{callback:v=>v+"%",color:css("--muted")},grid:{color:css("--border")}},
+    x:{ticks:{color:css("--muted")},grid:{display:false}}}, plugins:{legend:{labels:{color:css("--text")}}}}});
+
+// Ultimos resultados
+document.getElementById("ultimos").innerHTML = "<tr><th>Fecha</th><th>Partido</th><th>Resultado</th><th>Prob. local</th><th></th></tr>" +
+  H.slice(-25).reverse().map(h=>`<tr><td>${h.fecha.slice(5)}</td><td>${h.visitante} @ <b>${h.local}</b></td>
+  <td>${h.pts_visit}-${h.pts_local}</td><td>${(h.p*100).toFixed(0)}%</td><td class="${h.a?'ok':'ko'}">${h.a?'✓':'✗'}</td></tr>`).join("");
+</script>
+</body>
+</html>
