@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Predicciones LaLiga</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--text:#16181d;--muted:#5f6672;--border:#e3e6eb;
+--accent:#2563eb;--good:#15803d;--bad:#b91c1c;--bar:#dbe6fd;--c1:#2563eb;--cx:#9aa1ac;--c2:#e07b39;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1115;--panel:#181b21;
+--text:#e8eaed;--muted:#9aa1ac;--border:#2a2f38;--accent:#6ea0ff;--good:#4ade80;--bad:#f87171;--bar:#22324f;--c1:#6ea0ff;--cx:#6b7280;--c2:#f0a060;}}
+:root[data-theme="dark"]{--bg:#0f1115;--panel:#181b21;--text:#e8eaed;--muted:#9aa1ac;--border:#2a2f38;
+--accent:#6ea0ff;--good:#4ade80;--bad:#f87171;--bar:#22324f;--c1:#6ea0ff;--cx:#6b7280;--c2:#f0a060;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px 16px 48px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:17px;margin:0 0 12px}
+.sub{color:var(--muted);font-size:13px}
+.nav{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:18px}
+.nav a{padding:10px 16px;color:var(--muted);text-decoration:none;font-weight:600;border-bottom:3px solid transparent;margin-bottom:-1px}
+.nav a.on{color:var(--text);border-bottom-color:var(--accent)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px}
+.kpi .v{font-size:26px;font-weight:650}.kpi .l{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.grid.two{grid-template-columns:3fr 2fr}.grid.half{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;color:var(--muted);font-weight:500;font-size:12px;padding:6px 8px;border-bottom:1px solid var(--border)}
+td{padding:8px;border-bottom:1px solid var(--border);vertical-align:middle}
+tr.game{cursor:pointer}tr.game:hover td,tr.sel td{background:var(--bar)}
+.day{font-weight:600;background:var(--bg)!important;font-size:13px}
+.bar3{display:flex;height:22px;border-radius:4px;overflow:hidden;min-width:180px;font-size:11px;font-weight:600;color:#fff}
+.bar3 span{display:flex;align-items:center;justify-content:center;text-shadow:0 0 3px rgba(0,0,0,.5);overflow:hidden}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-bottom:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.ok{color:var(--good);font-weight:600}.ko{color:var(--bad);font-weight:600}
+.scroll{overflow-x:auto}.chartbox{position:relative;height:280px}
+</style>
+</head>
+<body>
+<main>
+<nav class="nav"><a href="index.html">🏀 NBA</a><a href="futbol.html" class="on">⚽ Fútbol</a></nav>
+<h1>Predicciones LaLiga</h1>
+<div class="sub" id="upd"></div>
+<div class="sub" style="margin-top:8px">Modelo de goles: cada equipo tiene un rating de ataque y de defensa calculado con los resultados desde 2022-23 (los recientes pesan más). De ahí salen los goles esperados y la probabilidad de 1 (gana el local), X (empate) y 2 (gana el visitante).</div>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="grid two">
+  <section class="card">
+    <h2>Próximos partidos</h2>
+    <div class="legend"><span><i style="background:var(--c1)"></i>1 · local</span><span><i style="background:var(--cx)"></i>X · empate</span><span><i style="background:var(--c2)"></i>2 · visitante</span></div>
+    <div class="scroll" style="max-height:480px;overflow-y:auto"><table id="proximos"></table></div>
+  </section>
+  <section class="card">
+    <h2 id="evoTitle">Evolución de la probabilidad</h2>
+    <div class="chartbox"><canvas id="evoChart"></canvas></div>
+    <div class="sub" id="evoNote" style="margin-top:8px"></div>
+  </section>
+</div>
+
+<div class="grid half" style="margin-top:16px">
+  <section class="card">
+    <h2>Fuerza según el modelo</h2>
+    <div class="sub" style="margin:-6px 0 10px">Goles a favor y en contra esperados por partido ante un rival medio.</div>
+    <div class="scroll" style="max-height:440px;overflow-y:auto"><table id="ranking"></table></div>
+  </section>
+  <section class="card">
+    <h2>Clasificación real</h2>
+    <div class="scroll" style="max-height:480px;overflow-y:auto"><table id="clasif"></table></div>
+  </section>
+</div>
+
+<div class="grid half" style="margin-top:16px">
+  <section class="card">
+    <h2>Acierto acumulado</h2>
+    <div class="chartbox"><canvas id="accChart"></canvas></div>
+  </section>
+  <section class="card">
+    <h2>Últimos resultados</h2>
+    <div class="scroll" style="max-height:300px;overflow-y:auto"><table id="ultimos"></table></div>
+  </section>
+</div>
+</main>
+
+<script>
+const D = /*__DATOS__*/null;
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fecha = s => new Date(s.replace("Z",":00Z"));
+const fmtEjec = s => fecha(s).toLocaleString("es-ES",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+document.getElementById("upd").textContent = "Última actualización: " + fmtEjec(D.generado);
+
+// KPIs
+const H = D.historial.map(h => ({...h, a:+h.acierto}));
+const n = H.length;
+const acc = n ? H.reduce((s,h)=>s+h.a,0)/n : 0;
+const local = n ? H.filter(h=>h.resultado==="1").length/n : 0;
+const rps = n ? H.reduce((s,h)=>{ const o={"1":[1,0],"X":[0,1],"2":[0,0]}[h.resultado];
+  const c1=+h.p1-o[0], c2=+h.p1+ +h.px-o[0]-o[1]; return s+(c1*c1+c2*c2)/2; },0)/n : 0;
+document.getElementById("kpis").innerHTML = [
+  [(acc*100).toFixed(1)+"%","Acierto (1X2) esta temporada"],
+  [(local*100).toFixed(1)+"%","Referencia: siempre el local"],
+  [rps.toFixed(3),"RPS (menor es mejor; ~0,19-0,20 es buen nivel)"],
+  [n,"Partidos evaluados"],
+  [D.proximos.length,"Partidos por predecir"],
+].map(([v,l])=>`<div class="card kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join("");
+
+// Proximos
+const evo = {}; D.evolucion.forEach(r => (evo[r.id] ||= []).push(r));
+const bar = (p1,px,p2) => `<div class="bar3">${[[p1,"--c1"],[px,"--cx"],[p2,"--c2"]].map(([p,c])=>
+  `<span style="width:${(p*100).toFixed(1)}%;background:var(${c})">${p>=.12?(p*100).toFixed(0)+"%":""}</span>`).join("")}</div>`;
+let html = "<tr><th>Hora</th><th>Partido</th><th>1 · X · 2</th><th>Marcador</th></tr>", dia = "";
+D.proximos.forEach(p => {
+  const d = fecha(p.hora_utc).toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long"});
+  if (d !== dia) { dia = d; html += `<tr><td colspan="4" class="day">${dia}</td></tr>`; }
+  html += `<tr class="game" data-id="${p.id}"><td>${fecha(p.hora_utc).toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"})}</td>
+  <td><b>${p.local}</b><br>${p.visitante}</td><td>${bar(+p.p1,+p.px,+p.p2)}</td>
+  <td>${p.marcador_probable}<div class="sub">${(+p.goles_esp_local).toFixed(1)} - ${(+p.goles_esp_visit).toFixed(1)} esp.</div></td></tr>`;
+});
+const tb = document.getElementById("proximos");
+tb.innerHTML = D.proximos.length ? html : "<tr><td>No hay partidos en los próximos días.</td></tr>";
+let evoChart;
+function verPartido(id) {
+  document.querySelectorAll("tr.game").forEach(tr => tr.classList.toggle("sel", tr.dataset.id === id));
+  const p = D.proximos.find(x => x.id === id); if (!p) return;
+  const s = evo[id] || [];
+  document.getElementById("evoTitle").textContent = `${p.local} - ${p.visitante}`;
+  document.getElementById("evoNote").textContent = s.length < 2
+    ? "Solo hay una actualización para este partido. La línea irá creciendo cada día."
+    : `${s.length} actualizaciones desde ${fmtEjec(s[0].ejecucion_utc)}.`;
+  const ds = [["p1","1 · "+p.local,"--c1"],["px","X · empate","--cx"],["p2","2 · "+p.visitante,"--c2"]].map(([k,l,c]) =>
+    ({label:l, data:s.map(r=>+(r[k]*100).toFixed(1)), borderColor:css(c), backgroundColor:css(c), tension:.2, pointRadius:4}));
+  evoChart?.destroy();
+  evoChart = new Chart(document.getElementById("evoChart"), {type:"line", data:{labels:s.map(r=>fmtEjec(r.ejecucion_utc)), datasets:ds},
+    options:{maintainAspectRatio:false, scales:{y:{min:0,max:100,ticks:{callback:v=>v+"%",color:css("--muted")},grid:{color:css("--border")}},
+      x:{ticks:{color:css("--muted")},grid:{display:false}}}, plugins:{legend:{labels:{color:css("--text")}}}}});
+}
+tb.addEventListener("click", e => { const tr = e.target.closest("tr.game"); if (tr) verPartido(tr.dataset.id); });
+if (D.proximos.length) verPartido(D.proximos[0].id);
+
+// Ranking y clasificacion
+document.getElementById("ranking").innerHTML = "<tr><th>#</th><th>Equipo</th><th>GF</th><th>GC</th><th>Dif.</th></tr>" +
+  D.ratings.map((r,i)=>`<tr><td>${i+1}</td><td>${r.equipo}</td><td>${(+r.goles_favor).toFixed(2)}</td><td>${(+r.goles_contra).toFixed(2)}</td>
+  <td class="${+r.diferencia>=0?'ok':'ko'}">${+r.diferencia>=0?'+':''}${(+r.diferencia).toFixed(2)}</td></tr>`).join("");
+document.getElementById("clasif").innerHTML = "<tr><th>#</th><th>Equipo</th><th>PJ</th><th>Pts</th><th>GF</th><th>GC</th></tr>" +
+  D.clasificacion.map((t,i)=>`<tr><td>${i+1}</td><td>${t.equipo}</td><td>${t.pj}</td><td><b>${t.pts}</b></td><td>${t.gf}</td><td>${t.gc}</td></tr>`).join("");
+
+// Acierto acumulado
+const porDia = {}; H.forEach(h => { (porDia[h.fecha] ||= [0,0,0]); porDia[h.fecha][0]+=h.a; porDia[h.fecha][1]++; porDia[h.fecha][2]+= h.resultado==="1"; });
+const dias = Object.keys(porDia).sort(); let a=0,t=0,l=0;
+const sm = [], sl = [];
+dias.forEach(d => { a+=porDia[d][0]; t+=porDia[d][1]; l+=porDia[d][2]; sm.push(+(a/t*100).toFixed(1)); sl.push(+(l/t*100).toFixed(1)); });
+new Chart(document.getElementById("accChart"), {type:"line",
+  data:{labels:dias.map(d=>d.slice(5)), datasets:[
+    {label:"Modelo", data:sm, borderColor:css("--accent"), backgroundColor:css("--accent"), pointRadius:2, tension:.2},
+    {label:"Siempre el local", data:sl, borderColor:css("--muted"), borderDash:[5,4], pointRadius:0}]},
+  options:{maintainAspectRatio:false, scales:{y:{min:20,max:80,ticks:{callback:v=>v+"%",color:css("--muted")},grid:{color:css("--border")}},
+    x:{ticks:{color:css("--muted")},grid:{display:false}}}, plugins:{legend:{labels:{color:css("--text")}}}}});
+
+// Ultimos
+document.getElementById("ultimos").innerHTML = "<tr><th>Fecha</th><th>Partido</th><th>Res.</th><th>Pronóstico</th><th></th></tr>" +
+  H.slice(-30).reverse().map(h=>`<tr><td>${h.fecha.slice(5)}</td><td>${h.local} - ${h.visitante}</td><td>${h.goles_local}-${h.goles_visit}</td>
+  <td>${h.prediccion} (${(Math.max(+h.p1,+h.px,+h.p2)*100).toFixed(0)}%)</td><td class="${h.a?'ok':'ko'}">${h.a?'✓':'✗'}</td></tr>`).join("");
+</script>
+</body>
+</html>

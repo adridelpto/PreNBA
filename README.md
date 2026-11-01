@@ -117,3 +117,18 @@ rebotes, asistencias, triples, tiros de campo, robos, tapones y P+R+A.
 Los lesionados "Out" no se proyectan. Para medir el error se proyecta cada partido ya
 jugado usando solo lo que se sabía antes. Genera `props_proximos.csv`,
 `props_ultimos.csv` (proyección vs. real) y `props_evaluacion.json`.
+
+## Fútbol: LaLiga (`futbol_laliga.py`)
+
+Página aparte: `futbol.html`. En la web, pestaña "⚽ Fútbol".
+
+- Resultados de LaLiga desde 2022-23 (ESPN).
+- Cada equipo tiene un rating de ataque y otro de defensa (modelo de Poisson tipo
+  Dixon-Coles). Los partidos de hace 6 meses pesan la mitad que los de hoy. Los recién
+  ascendidos empiezan por debajo de la media.
+- Salen los goles esperados, el marcador más probable y la probabilidad de 1 / X / 2.
+- Evaluación: cada día de partidos de esta temporada se predice usando solo lo anterior.
+  Se mide el acierto y el RPS (0,19-0,20 es buen nivel en fútbol).
+
+Genera `futbol_historial.csv`, `futbol_proximos.csv`, `futbol_ratings.csv`,
+`futbol_clasificacion.csv` y `futbol_evolucion.csv`.

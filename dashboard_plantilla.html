@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Predicciones NBA Elo</title>
+<title>Predicciones NBA</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{--bg:#f6f7f9;--panel:#fff;--text:#16181d;--muted:#5f6672;--border:#e3e6eb;
@@ -14,7 +14,7 @@
 --accent:#6ea0ff;--good:#4ade80;--bad:#f87171;--bar:#22324f;}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
-main{max-width:1100px;margin:0 auto;padding:24px 16px 48px}
+main{max-width:1100px;margin:0 auto;padding:16px 16px 48px}
 h1{font-size:24px;margin:0 0 4px}h2{font-size:17px;margin:0 0 12px}
 .sub{color:var(--muted);font-size:13px}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0}
@@ -39,6 +39,9 @@ select{background:var(--panel);color:var(--text);border:1px solid var(--border);
 .toggle button.on{background:var(--accent);color:#fff}
 .toggle button small{opacity:.8;margin-left:6px}
 .hide{display:none}
+.nav{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:18px}
+.nav a{padding:10px 16px;color:var(--muted);text-decoration:none;font-weight:600;border-bottom:3px solid transparent;margin-bottom:-1px}
+.nav a.on{color:var(--text);border-bottom-color:var(--accent)}
 .filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
 .filtros input{background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:5px 8px;min-width:200px;font:inherit;font-size:14px}
 table.props td,table.props th{white-space:nowrap;text-align:center}
@@ -49,6 +52,7 @@ table.props td:nth-child(1),table.props th:nth-child(1){text-align:left}
 </head>
 <body>
 <main>
+<nav class="nav"><a href="index.html" class="on">🏀 NBA</a><a href="futbol.html">⚽ Fútbol</a></nav>
 <div class="top"><div><h1>Predicciones NBA</h1><div class="sub" id="upd"></div></div>
 <div class="toggle" id="toggle"></div></div>
 <div class="sub" id="desc" style="margin-top:10px"></div>

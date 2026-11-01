@@ -1,7 +1,8 @@
 @echo off
 cd /d "%~dp0"
 set PYTHONIOENCODING=utf-8
-python nba_elo.py %*
-python nba_jugadores.py %*
-python nba_props.py %*
+python nba_elo.py
+python nba_jugadores.py
+python nba_props.py
+python futbol_laliga.py
 pause
