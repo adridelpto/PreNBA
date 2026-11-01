@@ -122,7 +122,8 @@ jugado usando solo lo que se sabía antes. Genera `props_proximos.csv`,
 
 Página aparte: `futbol.html`. En la web, pestaña "⚽ Fútbol".
 
-- Resultados de LaLiga desde 2022-23 (ESPN).
+- Resultados de LaLiga desde 2022-23 (ESPN). En la página se puede elegir desde qué
+  temporada contar (2022-23 a la actual); se calcula una versión del modelo para cada una.
 - Cada equipo tiene un rating de ataque y otro de defensa (modelo de Poisson tipo
   Dixon-Coles). Los partidos de hace 6 meses pesan la mitad que los de hoy. Los recién
   ascendidos empiezan por debajo de la media.

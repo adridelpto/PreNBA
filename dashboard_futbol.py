@@ -5,7 +5,7 @@ import json
 import os
 from datetime import datetime, timezone
 
-from dashboard import leer
+from dashboard import leer, leer_json
 
 
 def generar(salida="futbol.html"):
@@ -16,6 +16,7 @@ def generar(salida="futbol.html"):
         "ratings": leer("futbol_ratings.csv"),
         "clasificacion": leer("futbol_clasificacion.csv"),
         "evolucion": leer("futbol_evolucion.csv"),
+        "variantes": leer_json("futbol_variantes.json"),
     }
     base = os.path.dirname(os.path.abspath(__file__))
     with open(os.path.join(base, "futbol_plantilla.html"), encoding="utf-8") as f:

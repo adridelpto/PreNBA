@@ -35,15 +35,18 @@ tr.game{cursor:pointer}tr.game:hover td,tr.sel td{background:var(--bar)}
 .legend{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-bottom:8px}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
 .ok{color:var(--good);font-weight:600}.ko{color:var(--bad);font-weight:600}
+.top{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.desde{font-size:14px;color:var(--muted)}
+.desde select{background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 8px;font:inherit;font-size:14px;margin-left:6px}
 .scroll{overflow-x:auto}.chartbox{position:relative;height:280px}
 </style>
 </head>
 <body>
 <main>
 <nav class="nav"><a href="index.html">🏀 NBA</a><a href="futbol.html" class="on">⚽ Fútbol</a></nav>
-<h1>Predicciones LaLiga</h1>
-<div class="sub" id="upd"></div>
-<div class="sub" style="margin-top:8px">Modelo de goles: cada equipo tiene un rating de ataque y de defensa calculado con los resultados desde 2022-23 (los recientes pesan más). De ahí salen los goles esperados y la probabilidad de 1 (gana el local), X (empate) y 2 (gana el visitante).</div>
+<div class="top"><div><h1>Predicciones LaLiga</h1><div class="sub" id="upd"></div></div>
+<label class="desde">Datos desde la temporada <select id="selDesde"></select></label></div>
+<div class="sub" style="margin-top:8px">Modelo de goles: cada equipo tiene un rating de ataque y de defensa calculado con los resultados de LaLiga desde la temporada elegida (los recientes pesan más: un partido de hace 6 meses cuenta la mitad). De ahí salen los goles esperados y la probabilidad de 1 (gana el local), X (empate) y 2 (gana el visitante).</div>
 
 <div class="kpis" id="kpis"></div>
 
@@ -86,6 +89,21 @@ tr.game{cursor:pointer}tr.game:hover td,tr.sel td{background:var(--bar)}
 
 <script>
 const D = /*__DATOS__*/null;
+const V = D.variantes || {};
+const opciones = Object.keys(V).sort();
+let desde = new URLSearchParams(location.search).get("desde");
+if (!V[desde]) { try { desde = localStorage.getItem("futbol_desde"); } catch(e) {} }
+if (!V[desde]) desde = opciones[0];
+if (V[desde]) {
+  try { localStorage.setItem("futbol_desde", desde); } catch(e) {}
+  D.historial = V[desde].historial; D.proximos = V[desde].proximos; D.ratings = V[desde].ranking;
+  D.evolucion = D.evolucion.filter(r => r.desde === desde);
+}
+const sel = document.getElementById("selDesde");
+sel.innerHTML = opciones.map(o => { const m = V[o].metricas || {};
+  return `<option value="${o}">${o}-${String(+o+1).slice(2)}${m.n ? ` · acierto ${(m.acierto*100).toFixed(1)}%` : ""}</option>`; }).join("");
+sel.value = desde;
+sel.onchange = () => { location.search = "?desde=" + sel.value; };
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const fecha = s => new Date(s.replace("Z",":00Z"));
 const fmtEjec = s => fecha(s).toLocaleString("es-ES",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});

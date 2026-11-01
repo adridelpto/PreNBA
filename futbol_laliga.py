@@ -165,16 +165,8 @@ def guardar_csv(nombre, filas):
         w.writerows(filas)
 
 
-def ejecutar(dias_pred=10):
-    print("Descargando LaLiga desde 2022-23 (solo la primera vez tarda)...")
-    partidos = descargar()
-    jugados = [p for p in partidos if p["estado"] == "post"]
-    equipos_por_temp = {}
-    for p in partidos:
-        equipos_por_temp.setdefault(p["temporada"], set()).update((p["local"], p["visit"]))
-    eq_act, eq_prev = equipos_por_temp.get(ACTUAL, set()), equipos_por_temp.get(ACTUAL - 1, set())
-
-    # Evaluacion: se reajusta antes de cada dia de partidos de esta temporada
+def calcular(jugados, partidos, eq_act, eq_prev, dias_pred, ahora):
+    """Evalua esta temporada y predice los proximos partidos con los partidos dados."""
     historial, modelo, dia_modelo = [], None, None
     for p in jugados:
         if p["temporada"] != ACTUAL:
@@ -192,22 +184,6 @@ def ejecutar(dias_pred=10):
                           "goles_local": p["gl"], "goles_visit": p["gv"], "resultado": res,
                           "prediccion": pred, "acierto": int(pred == res)})
 
-    n = len(historial)
-    if n:
-        acierto = sum(h["acierto"] for h in historial) / n
-        rps = 0.0     # Ranked Probability Score (menor es mejor)
-        for h in historial:
-            o = {"1": (1, 0, 0), "X": (0, 1, 0), "2": (0, 0, 1)}[h["resultado"]]
-            c1 = h["p1"] - o[0]
-            c2 = h["p1"] + h["px"] - o[0] - o[1]
-            rps += (c1 ** 2 + c2 ** 2) / 2
-        rps /= n
-        local = sum(h["resultado"] == "1" for h in historial) / n
-        print(f"\nPartidos evaluados: {n}   Acierto: {acierto:.1%}   RPS: {rps:.3f}")
-        print(f"(referencia: apostar siempre por el local acertaria {local:.1%})")
-
-    # Modelo con todo lo jugado hasta ahora
-    ahora = datetime.now(timezone.utc)
     modelo = ajustar(jugados, ahora, eq_act, eq_prev)
     preds = []
     for p in partidos:
@@ -218,12 +194,7 @@ def ejecutar(dias_pred=10):
                           "p1": round(p1, 3), "px": round(px, 3), "p2": round(p2, 3),
                           "goles_esp_local": round(el, 2), "goles_esp_visit": round(ev, 2),
                           "marcador_probable": marcador})
-    print(f"\nPredicciones proximos {dias_pred} dias:")
-    for pr in preds:
-        print(f"  {pr['fecha']}  {pr['local']} - {pr['visitante']}:  1 {pr['p1']:.0%}  X {pr['px']:.0%}  2 {pr['p2']:.0%}"
-              f"   ({pr['marcador_probable']})")
 
-    # Ranking: diferencia de goles esperada por partido contra un rival medio (neutral)
     ranking = []
     for e in sorted(eq_act):
         gf = math.exp(modelo["mu"] + modelo["at"].get(e, 0))
@@ -231,9 +202,49 @@ def ejecutar(dias_pred=10):
         ranking.append({"equipo": e, "goles_favor": round(gf, 2), "goles_contra": round(gc, 2),
                         "diferencia": round(gf - gc, 2)})
     ranking.sort(key=lambda r: -r["diferencia"])
-    print("\nRanking (goles a favor / en contra esperados por partido ante un rival medio):")
-    for i, r in enumerate(ranking, 1):
-        print(f"  {i:2d}. {r['equipo']:25s} {r['goles_favor']:.2f} / {r['goles_contra']:.2f}  ({r['diferencia']:+.2f})")
+    return historial, preds, ranking
+
+
+def metricas(historial):
+    n = len(historial)
+    if not n:
+        return {"n": 0}
+    rps = 0.0     # Ranked Probability Score (menor es mejor)
+    for h in historial:
+        o = {"1": (1, 0, 0), "X": (0, 1, 0), "2": (0, 0, 1)}[h["resultado"]]
+        c1 = h["p1"] - o[0]
+        c2 = h["p1"] + h["px"] - o[0] - o[1]
+        rps += (c1 ** 2 + c2 ** 2) / 2
+    return {"n": n, "acierto": sum(h["acierto"] for h in historial) / n, "rps": rps / n,
+            "local": sum(h["resultado"] == "1" for h in historial) / n}
+
+
+def ejecutar(dias_pred=10):
+    print("Descargando LaLiga desde 2022-23 (solo la primera vez tarda)...")
+    partidos = descargar()
+    jugados = [p for p in partidos if p["estado"] == "post"]
+    equipos_por_temp = {}
+    for p in partidos:
+        equipos_por_temp.setdefault(p["temporada"], set()).update((p["local"], p["visit"]))
+    eq_act, eq_prev = equipos_por_temp.get(ACTUAL, set()), equipos_por_temp.get(ACTUAL - 1, set())
+    ahora = datetime.now(timezone.utc)
+
+    # Una version del modelo por cada temporada de inicio posible
+    variantes = {}
+    for desde in TEMPORADAS:
+        sub = [p for p in jugados if p["temporada"] >= desde]
+        historial, preds, ranking = calcular(sub, partidos, eq_act, eq_prev, dias_pred, ahora)
+        m = metricas(historial)
+        variantes[str(desde)] = {"historial": historial, "proximos": preds, "ranking": ranking, "metricas": m}
+        if m["n"]:
+            print(f"Datos desde {desde}-{str(desde + 1)[2:]}: acierto {m['acierto']:.1%}  RPS {m['rps']:.3f}"
+                  f"  ({m['n']} partidos; siempre el local: {m['local']:.1%})")
+
+    defecto = variantes[str(TEMPORADAS[0])]
+    print(f"\nPredicciones proximos {dias_pred} dias (datos desde {TEMPORADAS[0]}-{str(TEMPORADAS[0] + 1)[2:]}):")
+    for pr in defecto["proximos"]:
+        print(f"  {pr['fecha']}  {pr['local']} - {pr['visitante']}:  1 {pr['p1']:.0%}  X {pr['px']:.0%}  2 {pr['p2']:.0%}"
+              f"   ({pr['marcador_probable']})")
 
     # Clasificacion real de esta temporada
     tabla = {}
@@ -246,15 +257,22 @@ def ejecutar(dias_pred=10):
             t["pts"] += 3 if gf > gc else 1 if gf == gc else 0
     clasif = sorted(tabla.values(), key=lambda t: (-t["pts"], -(t["gf"] - t["gc"]), -t["gf"]))
 
-    guardar_csv("futbol_historial.csv", historial)
-    guardar_csv("futbol_proximos.csv", preds)
-    guardar_csv("futbol_ratings.csv", ranking)
+    guardar_csv("futbol_historial.csv", defecto["historial"])
+    guardar_csv("futbol_proximos.csv", defecto["proximos"])
+    guardar_csv("futbol_ratings.csv", defecto["ranking"])
     guardar_csv("futbol_clasificacion.csv", clasif)
-    # Registro de cada ejecucion para ver como cambian los porcentajes
+    with open("futbol_variantes.json", "w", encoding="utf-8") as f:
+        json.dump(variantes, f, ensure_ascii=False)
+    # Registro de cada ejecucion (todas las variantes) para ver como cambian los porcentajes
     nombre = "futbol_evolucion.csv"
     sello = ahora.strftime("%Y-%m-%dT%H:%MZ")
-    filas = [{"ejecucion_utc": sello, **{k: p[k] for k in ("id", "local", "visitante", "p1", "px", "p2")}} for p in preds]
+    filas = [{"ejecucion_utc": sello, "desde": d, **{k: p[k] for k in ("id", "local", "visitante", "p1", "px", "p2")}}
+             for d, v in variantes.items() for p in v["proximos"]]
     if filas:
+        if os.path.exists(nombre):
+            with open(nombre, encoding="utf-8") as f:
+                if "desde" not in f.readline():
+                    os.remove(nombre)          # formato antiguo
         nuevo = not os.path.exists(nombre)
         with open(nombre, "a", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=filas[0].keys())
