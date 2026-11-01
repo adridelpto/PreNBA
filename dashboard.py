@@ -32,11 +32,24 @@ def generar(salida="dashboard.html"):
     datos = {
         "generado": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
         "equipos": EQUIPOS,
-        "ratings": leer("ratings.csv"),
-        "proximos": leer("predicciones_proximas.csv"),
-        "historial": leer("historial_predicciones.csv"),
-        "evolucion_pred": leer("evolucion_predicciones.csv"),
         "evolucion_elo": leer("evolucion_elo.csv"),
+        "modelos": {
+            "elo": {
+                "nombre": "Elo de equipo",
+                "ratings": leer("ratings.csv"),
+                "proximos": leer("predicciones_proximas.csv"),
+                "historial": leer("historial_predicciones.csv"),
+                "evolucion_pred": leer("evolucion_predicciones.csv"),
+            },
+            "jugadores": {
+                "nombre": "Elo + jugadores",
+                "ratings": leer("jug_ratings.csv"),
+                "proximos": leer("jug_predicciones_proximas.csv"),
+                "historial": leer("jug_historial_predicciones.csv"),
+                "evolucion_pred": leer("jug_evolucion_predicciones.csv"),
+                "jugadores": leer("jug_jugadores.csv")[:60],
+            },
+        },
     }
     base = os.path.dirname(os.path.abspath(__file__))
     with open(os.path.join(base, "dashboard_plantilla.html"), encoding="utf-8") as f:

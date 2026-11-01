@@ -38,6 +38,28 @@ han terminado los partidos de la noche.
 - `cache_espn/`: días ya descargados, para que cada ejecución sea rápida. Se puede
   borrar sin problema; se vuelve a descargar.
 
+## Modelo 2: Elo + jugadores (`nba_jugadores.py`)
+
+```
+python nba_jugadores.py
+```
+
+`actualizar.bat` ejecuta los dos modelos.
+
+1. Descarga de ESPN las estadísticas de todos los jugadores de las últimas 5 temporadas
+   completas y de la actual.
+2. Rating de cada jugador = Game Score por 36 minutos. Las temporadas recientes pesan
+   más, y quien ha jugado pocos minutos se acerca al nivel de un jugador de reemplazo.
+3. Coge las plantillas actuales y quita a los lesionados marcados como "Out".
+   Fuerza de plantilla = suma de rating × minutos esperados.
+4. La diferencia de fuerza se pasa a puntos Elo. La escala se calibró con la temporada
+   2025-26 (0,53 puntos de margen por punto de fuerza).
+5. Se mezcla con el Elo de ganar/perder de esta temporada. Con 0 partidos jugados manda
+   la plantilla; con 25 partidos jugados, 50/50; después pesa cada vez más el Elo.
+
+Genera los mismos archivos que el modelo 1 con el prefijo `jug_`, más `jug_jugadores.csv`
+(rating de cada jugador) y `jug_ratings.csv` (ranking combinado).
+
 ## Dashboard
 
 Cada ejecución genera `dashboard.html` (y una copia `index.html` para publicarla en la web).

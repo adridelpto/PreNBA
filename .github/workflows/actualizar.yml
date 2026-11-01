@@ -19,6 +19,7 @@ jobs:
           python-version: "3.12"
       - run: pip install requests
       - run: python nba_elo.py --dias 7
+      - run: python nba_jugadores.py --dias 7
       - name: Guardar resultados en el repositorio
         run: |
           git config user.name "github-actions[bot]"

@@ -65,7 +65,7 @@ ESPN_URL = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scorebo
 CACHE_DIR = "cache_espn"
 
 
-def descargar_espn(dias_pred=7, inicio="2026-10-01"):
+def descargar_espn(dias_pred=7, inicio="2026-10-01", fin=None):
     """Fuente alternativa: marcadores diarios publicos de ESPN.
     Guarda en cache_espn/ los dias ya terminados para no volver a pedirlos."""
     import os
@@ -73,7 +73,7 @@ def descargar_espn(dias_pred=7, inicio="2026-10-01"):
     os.makedirs(CACHE_DIR, exist_ok=True)
     hoy = datetime.now(timezone.utc).date()
     d = datetime.fromisoformat(inicio).date()
-    fin = hoy + timedelta(days=dias_pred)
+    fin = datetime.fromisoformat(fin).date() if fin else hoy + timedelta(days=dias_pred)
     partidos = []
     while d <= fin:
         clave = d.strftime("%Y%m%d")
@@ -213,11 +213,10 @@ def ejecutar(partidos, dias_pred=2):
     return elo, historial, preds
 
 
-def registrar_ejecucion(preds):
+def registrar_ejecucion(preds, nombre="evolucion_predicciones.csv"):
     """Anade las predicciones de esta ejecucion a evolucion_predicciones.csv,
     para ver como cambian los porcentajes de un partido entre ejecuciones."""
     import os
-    nombre = "evolucion_predicciones.csv"
     ahora = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
     filas = [{"ejecucion_utc": ahora, **p} for p in preds]
     if not filas:
