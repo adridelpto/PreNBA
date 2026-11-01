@@ -87,3 +87,17 @@ un repositorio de GitHub y activar Pages (rama `main`, carpeta raíz).
 - **Brier** (menor es mejor, 0.25 = moneda al aire) y **LogLoss** (0.693 = moneda al aire).
 - Al principio de temporada todos los equipos empiezan en 1500, así que las
   primeras semanas el modelo acierta poco. Mejora a medida que se juegan partidos.
+
+## Cuotas y simulación de apuestas (`cuotas.py`)
+
+Se ejecuta después de los dos modelos. Descarga de ESPN las cuotas de DraftKings a ganador:
+las de cierre de cada partido jugado y las del día para los próximos (ESPN solo las publica
+el mismo día). Con eso:
+
+- Calcula la probabilidad que da la casa, quitando su margen.
+- Simula apostar 1 unidad cada vez que un modelo ve un valor de al menos 5%
+  (prob. del modelo × cuota − 1 ≥ 0,05) y calcula beneficio y ROI.
+- Compara el Brier de cada modelo con el de la casa.
+
+Genera `cuotas_historial.csv`, `apuestas_simuladas.csv`, `jug_apuestas_simuladas.csv` y
+`apuestas_resumen.json`, y añade las cuotas a `predicciones_proximas.csv`.

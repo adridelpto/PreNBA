@@ -87,6 +87,13 @@ select{background:var(--panel);color:var(--text);border:1px solid var(--border);
   </section>
 </div>
 
+<section class="card" id="secApu" style="margin-top:16px">
+  <h2>Apuestas: ¿sería rentable?</h2>
+  <div class="sub" style="margin:-6px 0 12px">Simulación con las cuotas de cierre de DraftKings (vía ESPN) de esta temporada: apostar 1 unidad a ganador cada vez que el modelo ve un valor de al menos 5% (prob. del modelo × cuota − 1). Es una prueba histórica, no una recomendación.</div>
+  <div class="kpis" id="apuKpis" style="margin:0 0 12px"></div>
+  <div class="scroll" style="max-height:320px;overflow-y:auto"><table id="apuestas"></table></div>
+</section>
+
 <section class="card hide" id="secJug" style="margin-top:16px">
   <h2>Jugadores con más peso</h2>
   <div class="sub" style="margin:-6px 0 10px">Rating = Game Score por 36 minutos (últimas 5 temporadas + la actual). Peso = rating × minutos esperados. Los jugadores "Out" no cuentan para la plantilla.</div>
@@ -134,12 +141,20 @@ document.getElementById("kpis").innerHTML = [
 const evo = {};
 D.evolucion_pred.forEach(r => (evo[r.id] ||= []).push(r));
 
+function cuotaTxt(p, favL) {
+  if (!p.cuota_local) return "<span class='sub'>aún no</span>";
+  const c = favL ? p.cuota_local : p.cuota_visit;
+  const vL = +p.valor_local, vV = +p.valor_visit;
+  const [v, eq] = vL >= vV ? [vL, p.local] : [vV, p.visitante];
+  const badge = v >= .05 ? ` <span class="up" title="El modelo ve valor apostando por ${eq}">valor ${eq} +${(v*100).toFixed(0)}%</span>` : "";
+  return `${(+c).toFixed(2)} <span class="sub">(casa ${(Math.max(+p.prob_mercado_local,1-p.prob_mercado_local)*100).toFixed(0)}%)</span>${badge}`;
+}
 // Proximos partidos
 const tb = document.getElementById("proximos");
-let html = "<tr><th>Hora</th><th>Partido</th><th>Favorito</th><th>Prob.</th><th>Cambio</th></tr>", dia = "";
+let html = "<tr><th>Hora</th><th>Partido</th><th>Favorito</th><th>Prob.</th><th>Cambio</th><th>Cuota fav.</th></tr>", dia = "";
 D.proximos.forEach(p => {
   const diaLocal = new Date(p.hora_utc.replace("Z",":00Z")).toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long"});
-  if (diaLocal !== dia) { dia = diaLocal; html += `<tr><td colspan="5" class="day">${dia}</td></tr>`; }
+  if (diaLocal !== dia) { dia = diaLocal; html += `<tr><td colspan="6" class="day">${dia}</td></tr>`; }
   const pl = +p.prob_local, favL = pl >= .5, fav = favL ? p.local : p.visitante, pr = favL ? pl : 1-pl;
   const serie = evo[p.id] || [];
   let cambio = "<span class='sub'>nuevo</span>";
@@ -151,7 +166,7 @@ D.proximos.forEach(p => {
   html += `<tr class="game" data-id="${p.id}"><td>${fmtHora(p.hora_utc)}</td>
     <td title="${nom(p.visitante)} @ ${nom(p.local)}">${p.visitante} @ <b>${p.local}</b></td>
     <td>${fav}</td><td><div class="prob"><span style="width:${(pr*100).toFixed(0)}%"></span><b>${(pr*100).toFixed(0)}%</b></div></td>
-    <td>${cambio}</td></tr>`;
+    <td>${cambio}</td><td>${cuotaTxt(p, favL)}</td></tr>`;
 });
 tb.innerHTML = D.proximos.length ? html : "<tr><td>No hay partidos programados en los próximos días.</td></tr>";
 
@@ -177,6 +192,22 @@ function verPartido(id) {
 }
 tb.addEventListener("click", e => { const tr = e.target.closest("tr.game"); if (tr) verPartido(tr.dataset.id); });
 if (D.proximos.length) verPartido(D.proximos[0].id);
+
+// Apuestas
+(() => {
+  const R = RAW.resumen_apuestas; if (!R) { document.getElementById("secApu").classList.add("hide"); return; }
+  const r = R.modelos[M] || {}, mk = R.mercado || {};
+  const roi = (r.roi*100).toFixed(1);
+  document.getElementById("apuKpis").innerHTML = [
+    [`<span class="${r.beneficio_unidades>=0?'up':'down'}">${r.beneficio_unidades>=0?'+':''}${r.beneficio_unidades} u</span>`, `Beneficio simulado (${r.apuestas} apuestas, ${r.ganadas} ganadas)`],
+    [`<span class="${r.roi>=0?'up':'down'}">${r.roi>=0?'+':''}${roi}%</span>`, "Rentabilidad por apuesta (ROI)"],
+    [r.brier_modelo, "Brier del modelo"],
+    [mk.brier, `Brier de la casa (acierta ${(mk.acierto*100).toFixed(0)}%)`],
+  ].map(([v,l])=>`<div class="card kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join("");
+  document.getElementById("apuestas").innerHTML = "<tr><th>Fecha</th><th>Partido</th><th>Apuesta</th><th>Cuota</th><th>Prob. modelo</th><th>Valor</th><th>Resultado</th></tr>" +
+    D.apuestas.slice().reverse().map(a=>`<tr><td>${a.fecha.slice(5)}</td><td>${a.partido}</td><td>${a.apuesta}</td><td>${(+a.cuota).toFixed(2)}</td>
+    <td>${(a.prob_modelo*100).toFixed(0)}%</td><td>+${(a.valor*100).toFixed(0)}%</td><td class="${+a.ganada?'ok':'ko'}">${+a.beneficio>0?'+':''}${a.beneficio}</td></tr>`).join("");
+})();
 
 // Ranking
 if (M === "jugadores") {

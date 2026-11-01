@@ -1,0 +1,26 @@
+{
+ "umbral": 0.05,
+ "modelos": {
+  "elo": {
+   "apuestas": 70,
+   "ganadas": 19,
+   "beneficio_unidades": -22.91,
+   "roi": -0.327,
+   "brier_modelo": 0.2473,
+   "partidos_comparados": 88
+  },
+  "jugadores": {
+   "apuestas": 65,
+   "ganadas": 22,
+   "beneficio_unidades": -17.83,
+   "roi": -0.274,
+   "brier_modelo": 0.2257,
+   "partidos_comparados": 88
+  }
+ },
+ "mercado": {
+  "partidos": 88,
+  "acierto": 0.693,
+  "brier": 0.1917
+ }
+}
