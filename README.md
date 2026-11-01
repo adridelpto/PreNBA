@@ -75,8 +75,8 @@ permite ver cómo cambian los porcentajes. No lo borres.
 
 ## Actualización automática (GitHub)
 
-`.github/workflows/actualizar.yml` está preparado para que GitHub ejecute el modelo cada
-3 días en sus servidores, guarde los CSV y publique el dashboard en GitHub Pages.
+`.github/workflows/actualizar.yml` está preparado para que GitHub ejecute los modelos cada
+día en sus servidores, guarde los CSV y publique el dashboard en GitHub Pages.
 Funciona con el PC apagado y es gratis. Para activarlo hace falta subir esta carpeta a
 un repositorio de GitHub y activar Pages (rama `main`, carpeta raíz).
 

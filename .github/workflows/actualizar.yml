@@ -1,9 +1,9 @@
-# Actualiza los datos y el dashboard cada 3 dias, sin necesidad de tener el PC encendido.
+# Actualiza los datos y el dashboard cada dia, sin necesidad de tener el PC encendido.
 name: Actualizar predicciones NBA
 
 on:
   schedule:
-    - cron: "0 10 */3 * *"   # cada 3 dias a las 10:00 UTC (11:00/12:00 en Espana)
+    - cron: "0 10 * * *"     # todos los dias a las 10:00 UTC (11:00 en invierno, 12:00 en verano en Espana)
   workflow_dispatch:          # boton "Run workflow" para lanzarlo a mano
 
 permissions:
