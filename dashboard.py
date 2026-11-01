@@ -40,7 +40,6 @@ def generar(salida="dashboard.html"):
         "generado": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
         "equipos": EQUIPOS,
         "evolucion_elo": leer("evolucion_elo.csv"),
-        "resumen_apuestas": leer_json("apuestas_resumen.json"),
         "modelos": {
             "elo": {
                 "nombre": "Elo de equipo",
@@ -48,7 +47,6 @@ def generar(salida="dashboard.html"):
                 "proximos": leer("predicciones_proximas.csv"),
                 "historial": leer("historial_predicciones.csv"),
                 "evolucion_pred": leer("evolucion_predicciones.csv"),
-                "apuestas": leer("apuestas_simuladas.csv"),
             },
             "jugadores": {
                 "nombre": "Elo + jugadores",
@@ -57,7 +55,6 @@ def generar(salida="dashboard.html"):
                 "historial": leer("jug_historial_predicciones.csv"),
                 "evolucion_pred": leer("jug_evolucion_predicciones.csv"),
                 "jugadores": leer("jug_jugadores.csv")[:60],
-                "apuestas": leer("jug_apuestas_simuladas.csv"),
             },
         },
     }

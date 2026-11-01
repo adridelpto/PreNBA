@@ -151,10 +151,11 @@ function cuotaTxt(p, favL) {
 }
 // Proximos partidos
 const tb = document.getElementById("proximos");
-let html = "<tr><th>Hora</th><th>Partido</th><th>Favorito</th><th>Prob.</th><th>Cambio</th><th>Cuota fav.</th></tr>", dia = "";
+const hayCuotas = D.proximos.some(p => p.cuota_local);
+let html = `<tr><th>Hora</th><th>Partido</th><th>Favorito</th><th>Prob.</th><th>Cambio</th>${hayCuotas?"<th>Cuota fav.</th>":""}</tr>`, dia = "";
 D.proximos.forEach(p => {
   const diaLocal = new Date(p.hora_utc.replace("Z",":00Z")).toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long"});
-  if (diaLocal !== dia) { dia = diaLocal; html += `<tr><td colspan="6" class="day">${dia}</td></tr>`; }
+  if (diaLocal !== dia) { dia = diaLocal; html += `<tr><td colspan="${hayCuotas?6:5}" class="day">${dia}</td></tr>`; }
   const pl = +p.prob_local, favL = pl >= .5, fav = favL ? p.local : p.visitante, pr = favL ? pl : 1-pl;
   const serie = evo[p.id] || [];
   let cambio = "<span class='sub'>nuevo</span>";
@@ -166,7 +167,7 @@ D.proximos.forEach(p => {
   html += `<tr class="game" data-id="${p.id}"><td>${fmtHora(p.hora_utc)}</td>
     <td title="${nom(p.visitante)} @ ${nom(p.local)}">${p.visitante} @ <b>${p.local}</b></td>
     <td>${fav}</td><td><div class="prob"><span style="width:${(pr*100).toFixed(0)}%"></span><b>${(pr*100).toFixed(0)}%</b></div></td>
-    <td>${cambio}</td><td>${cuotaTxt(p, favL)}</td></tr>`;
+    <td>${cambio}</td>${hayCuotas?`<td>${cuotaTxt(p, favL)}</td>`:""}</tr>`;
 });
 tb.innerHTML = D.proximos.length ? html : "<tr><td>No hay partidos programados en los próximos días.</td></tr>";
 
