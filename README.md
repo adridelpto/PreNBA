@@ -101,3 +101,19 @@ el mismo día). Con eso:
 
 Genera `cuotas_historial.csv`, `apuestas_simuladas.csv`, `jug_apuestas_simuladas.csv` y
 `apuestas_resumen.json`, y añade las cuotas a `predicciones_proximas.csv`.
+
+## Modelo 3: estadísticas por jugador (`nba_props.py`)
+
+No predice quién gana, sino lo que hará cada jugador en sus próximos partidos: puntos,
+rebotes, asistencias, triples, tiros de campo, robos, tapones y P+R+A.
+
+1. **Ritmo por minuto:** box scores partido a partido de esta temporada más las dos
+   anteriores. Lo reciente pesa más, y quien ha jugado poco se acerca a la media de la liga.
+2. **Minutos esperados:** media de los últimos 5 partidos mezclada con la de la temporada.
+3. **Rival:** cuánto concede el rival de cada estadística frente a la media de la liga.
+4. **Proyección** = ritmo × minutos × factor rival. El rango es donde debería caer el
+   resultado 6 de cada 10 veces; se calibra con los partidos ya jugados.
+
+Los lesionados "Out" no se proyectan. Para medir el error se proyecta cada partido ya
+jugado usando solo lo que se sabía antes. Genera `props_proximos.csv`,
+`props_ultimos.csv` (proyección vs. real) y `props_evaluacion.json`.

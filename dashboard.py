@@ -56,6 +56,12 @@ def generar(salida="dashboard.html"):
                 "evolucion_pred": leer("jug_evolucion_predicciones.csv"),
                 "jugadores": leer("jug_jugadores.csv")[:60],
             },
+            "props": {
+                "nombre": "Estadísticas por jugador",
+                "proximos": leer("props_proximos.csv"),
+                "ultimos": leer("props_ultimos.csv"),
+                "evaluacion": leer_json("props_evaluacion.json"),
+            },
         },
     }
     base = os.path.dirname(os.path.abspath(__file__))

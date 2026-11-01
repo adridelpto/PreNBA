@@ -1,0 +1,58 @@
+{
+ "pts": {
+  "nombre": "Puntos",
+  "error_modelo": 4.91,
+  "error_media": 5.11,
+  "n": 1548,
+  "escala_rango": 1.45
+ },
+ "reb": {
+  "nombre": "Rebotes",
+  "error_modelo": 1.9,
+  "error_media": 1.98,
+  "n": 1548,
+  "escala_rango": 1.11
+ },
+ "ast": {
+  "nombre": "Asistencias",
+  "error_modelo": 1.43,
+  "error_media": 1.47,
+  "n": 1548,
+  "escala_rango": 1.13
+ },
+ "tri": {
+  "nombre": "Triples",
+  "error_modelo": 0.97,
+  "error_media": 0.99,
+  "n": 1548,
+  "escala_rango": 1.09
+ },
+ "tiros": {
+  "nombre": "Tiros de campo",
+  "error_modelo": 2.91,
+  "error_media": 3.0,
+  "n": 1548,
+  "escala_rango": 1.01
+ },
+ "rob": {
+  "nombre": "Robos",
+  "error_modelo": 0.77,
+  "error_media": 0.81,
+  "n": 1548,
+  "escala_rango": 1.04
+ },
+ "tap": {
+  "nombre": "Tapones",
+  "error_modelo": 0.56,
+  "error_media": 0.57,
+  "n": 1548,
+  "escala_rango": 0.83
+ },
+ "pra": {
+  "nombre": "P+R+A",
+  "error_modelo": 6.24,
+  "error_media": 6.53,
+  "n": 1548,
+  "escala_rango": 1.43
+ }
+}
