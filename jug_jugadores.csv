@@ -11,7 +11,7 @@ Jamal Murray,DEN,18.9,38,
 Trae Young,WSH,19.6,36.3,
 Domantas Sabonis,SAC,19.2,37.0,
 Tyrese Maxey,PHI,18.7,37.6,
-LeBron James,PHI,20.9,33.4,Day-To-Day
+LeBron James,PHI,20.9,33.4,
 Kawhi Leonard,TOR,21.7,32.1,Out
 Donovan Mitchell,CLE,20.6,33.0,
 Jalen Brunson,NY,19.2,35.2,
@@ -40,15 +40,15 @@ Brandon Ingram,LAC,16.6,33.8,Out
 Cooper Flagg,DAL,17.4,32.2,
 Bam Adebayo,MIA,17.5,31.5,
 Desmond Bane,ORL,16.5,33.4,
-Zach LaVine,SAC,16.1,34.0,
+Zach LaVine,SAC,16.1,34.0,Day-To-Day
 Jalen Williams,OKC,17.1,31.7,Out
-Dejounte Murray,NO,16.8,32.2,Day-To-Day
+Dejounte Murray,NO,16.8,32.2,
 Chet Holmgren,OKC,18.0,30.0,Out
 Darius Garland,LAC,16.6,32.4,
 Scottie Barnes,TOR,16.7,32.2,
-Kyrie Irving,DAL,18.8,28.6,
+Kyrie Irving,DAL,18.8,28.6,Day-To-Day
 Amen Thompson,HOU,15.6,33.9,
-Ty Jerome,MEM,17.6,29.8,Day-To-Day
+Ty Jerome,MEM,17.6,29.8,
 Jalen Duren,DET,18.5,28.2,Out
 Deni Avdija,POR,16.5,31.4,
 Lauri Markkanen,UTAH,17.9,28.6,
@@ -56,7 +56,7 @@ Tyler Herro,MIL,16.8,30.3,
 Jarrett Allen,CLE,18.2,27.8,
 Miles Bridges,PHX,15.5,32.5,
 Ja Morant,POR,19.4,25.8,Out
-Trey Murphy III,NO,15.6,31.8,
+Trey Murphy III,NO,15.6,31.8,Day-To-Day
 Paul George,BOS,16.3,30.4,
 Michael Porter Jr.,BKN,16.0,30.8,
 Brandon Miller,CHA,14.4,34.0,
@@ -72,7 +72,7 @@ Aaron Gordon,DEN,15.1,30.2,
 Kristaps Porzingis,GS,19.0,24.0,Out
 DeMar DeRozan,DEN,17.3,26.0,
 Brandin Podziemski,GS,13.7,32.8,
-Rudy Gobert,MIN,14.9,30.0,Day-To-Day
+Rudy Gobert,MIN,14.9,30.0,
 Christian Braun,DEN,12.3,36.2,
 OG Anunoby,NY,13.2,33.5,
 Darius Acuff Jr.,SAC,12.1,36.5,
@@ -82,7 +82,7 @@ Jaren Jackson Jr.,UTAH,16.9,26.0,Out
 Jalen Suggs,ORL,13.1,33.3,Out
 Devin Vassell,SA,13.6,32.0,
 Josh Giddey,CHI,16.4,26.3,
-Fred VanVleet,HOU,14.1,30.4,Day-To-Day
+Fred VanVleet,HOU,14.1,30.4,
 Onyeka Okongwu,ATL,15.0,28.3,
 Josh Hart,NY,13.0,32.5,
 Paul Reed,DET,15.7,26.8,
@@ -119,16 +119,16 @@ Donte DiVincenzo,MIN,12.5,30.4,Out
 Moussa Diabate,CHA,12.9,29.4,
 Jalen Green,PHX,14.3,26.5,
 Ayo Dosunmu,MIN,13.0,29.1,
-Jalen Smith,CHI,15.6,24.2,
+Jalen Smith,CHI,15.6,24.2,Day-To-Day
 Andrew Wiggins,MIA,13.8,27.3,
 Naji Marshall,DAL,13.5,27.7,
 De'Andre Hunter,SAC,12.7,29.3,
 Ryan Rollins,MIL,14.1,26.3,
-Coby White,CHA,14.7,25.0,Out
+Coby White,CHA,14.7,25.0,
 Mikal Bridges,NY,13.4,27.3,
 Ajay Mitchell,OKC,14.3,25.5,
 Kyle Kuzma,MIL,13.5,27.0,
-Alex Sarr,WSH,14.4,25.3,
+Alex Sarr,WSH,14.4,25.3,Day-To-Day
 Maxime Raynaud,SAC,13.7,26.5,Out
 Davion Mitchell,MIA,10.6,34.2,
 Precious Achiuwa,SAC,12.4,28.8,
@@ -156,22 +156,22 @@ Derik Queen,NO,14.3,23.7,
 Duncan Robinson,DET,11.4,29.7,
 Julian Champagnie,SA,11.9,28.3,
 Jeremiah Fears,NO,13.3,25.3,
-Peyton Watson,CLE,11.7,28.5,
+Peyton Watson,CLE,11.7,28.5,Day-To-Day
 Keldon Johnson,SA,14.7,22.5,
 Day'Ron Sharpe,BKN,15.0,22.0,
 Quentin Grimes,LAL,12.2,27.0,
 Jerami Grant,MEM,13.5,24.3,
-Derrick Jones Jr.,LAC,11.2,29.0,
+Derrick Jones Jr.,LAC,11.2,29.0,Day-To-Day
 Draymond Green,GS,11.3,28.6,Out
 Aaron Wiggins,ATL,12.5,25.6,
 Kris Dunn,LAC,10.5,30.4,
 Dillon Brooks,PHX,11.2,28.5,
 Kel'el Ware,MIL,16.0,19.7,
-Jakob Poeltl,TOR,15.6,20.2,
+Jakob Poeltl,TOR,15.6,20.2,Day-To-Day
 Daniss Jenkins,DET,12.7,24.7,
 Darryn Peterson,UTAH,10.4,29.8,
 Moses Moody,GS,12.0,25.7,Out
-Ziaire Williams,LAL,10.8,28.5,Day-To-Day
+Ziaire Williams,LAL,10.8,28.5,Out
 Anthony Black,ORL,11.7,26.3,
 Tari Eason,HOU,12.7,24.1,
 Isaiah Jackson,LAC,14.3,21.4,
@@ -210,7 +210,7 @@ Mitchell Robinson,BOS,13.3,20.0,Out
 Dominick Barlow,PHI,11.1,23.8,Out
 Keon Ellis,BKN,10.4,25.2,
 Leaky Black,SAC,9.0,28.9,
-Jaylon Tyson,CLE,12.5,20.8,Day-To-Day
+Jaylon Tyson,CLE,12.5,20.8,Out
 Matisse Thybulle,LAL,10.3,25.2,
 Dean Wade,PHI,9.3,27.8,
 Jarace Walker,IND,11.6,22.2,
@@ -226,7 +226,7 @@ Brandon Williams,GS,15.3,16.2,
 Kasparas Jakucionis,MIL,11.0,22.5,
 Olivier-Maxence Prosper,MEM,13.3,18.6,
 Trevon Brazile,DEN,10.8,22.8,
-Aaron Nesmith,IND,11.4,21.6,Day-To-Day
+Aaron Nesmith,IND,11.4,21.6,
 Leonard Miller,CHI,13.1,18.7,
 Caris LeVert,MIL,12.7,19.2,
 Kentavious Caldwell-Pope,PHI,10.0,24.3,
@@ -249,11 +249,11 @@ Gary Trent Jr.,MIL,10.9,21.2,
 Sam Hauser,BOS,11.1,20.8,
 Alex Caruso,OKC,12.1,19.0,Out
 Cam Whitmore,DEN,13.6,16.9,
-Jordan Poole,NO,14.3,16.0,Day-To-Day
+Jordan Poole,NO,14.3,16.0,Out
 Mo Bamba,UTAH,12.5,18.3,
 Dereck Lively II,DAL,13.9,16.4,Out
 Caleb Love,PHI,11.0,20.7,
-Mikel Brown Jr.,BKN,10.1,22.5,Out
+Mikel Brown Jr.,BKN,10.1,22.5,Day-To-Day
 Mike Conley,BOS,12.3,18.4,
 Marcus Sasser,DAL,11.7,19.3,
 Jaylin Williams,OKC,12.4,18.2,
@@ -272,11 +272,11 @@ Isaiah Stewart,MEM,12.0,18.2,
 Jamir Watkins,WSH,10.6,20.6,Out
 Jamal Shead,TOR,10.2,21.4,
 Devin Carter,BOS,11.8,18.4,Out
-Kingston Flemings,ATL,10.6,20.3,
+Kingston Flemings,ATL,10.6,20.3,Suspension
 Pat Spencer,PHX,11.5,18.6,
 Javonte Green,DET,11.4,18.7,
-Clint Capela,HOU,15.0,14.2,
-Tim Hardaway Jr.,MIA,11.7,18.2,
+Clint Capela,HOU,15.0,14.2,Day-To-Day
+Tim Hardaway Jr.,MIA,11.7,18.2,Day-To-Day
 Karlo Matkovic,NO,13.1,16.0,
 Kobe Sanders,LAC,9.6,21.8,
 Brice Sensabaugh,UTAH,13.5,15.5,
@@ -284,7 +284,7 @@ Tristan Vukcevic,WSH,15.2,13.7,Out
 Herbert Jones,NO,9.8,21.2,
 Miles McBride,NY,11.1,18.7,
 DeAndre Jordan,NO,12.3,16.6,
-Jock Landale,ATL,13.3,15.3,Day-To-Day
+Jock Landale,ATL,13.3,15.3,Out
 Trendon Watford,NO,12.4,16.3,
 Luke Kornet,SA,13.7,14.7,
 Grant Williams,CHA,10.1,19.8,Out
@@ -300,7 +300,7 @@ Patrick Williams,CHI,9.3,20.5,
 Andre Drummond,NY,14.3,13.3,
 Khris Middleton,WSH,13.6,13.8,
 Ben Saraf,BKN,9.0,20.8,
-Anthony Gill,WSH,10.8,17.3,
+Anthony Gill,WSH,10.8,17.3,Day-To-Day
 Marvin Bagley III,DEN,15.5,12.0,
 Quinten Post,MEM,12.2,15.2,Day-To-Day
 Royce O'Neale,CHA,10.3,18.0,
@@ -366,7 +366,7 @@ Oscar Tshiebwe,HOU,14.6,10.0,
 Caleb Martin,DAL,9.6,14.8,
 Tyrese Proctor,CLE,11.8,12.0,
 Daeqwon Plowden,SAC,10.0,14.0,
-Tobe Awaka,CHI,10.4,13.0,
+Tobe Awaka,CHI,10.4,13.0,Day-To-Day
 Rayan Rupert,PHI,8.0,16.8,
 Tre Mann,WSH,10.6,12.6,
 Tidjane Salaun,CHA,9.6,13.5,
@@ -379,7 +379,7 @@ Ryan Dunn,PHX,9.8,12.8,
 Jonathan Isaac,ORL,12.5,10.0,Out
 Jalen Slawson,IND,10.8,11.4,
 Micah Peavy,OKC,8.2,15.0,
-Yanic Konan Niederhauser,LAC,11.9,10.3,
+Yanic Konan Niederhauser,LAC,11.9,10.3,Out
 Tony Bradley,UTAH,11.1,11.0,
 Noa Essengue,CHI,8.7,14.0,
 Trey Alexander,UTAH,9.9,12.3,Out
@@ -431,7 +431,7 @@ Chris Cenac Jr.,BOS,10.5,8.0,
 Henri Veesaar,ATL,10.4,8.0,Out
 Dillon Mitchell,BOS,10.4,8.0,
 Tyler Bilodeau,BKN,10.4,8.0,Out
-Kylan Boswell,CHA,10.4,8.0,Out
+Kylan Boswell,CHA,10.4,8.0,
 Hannes Steinbach,CHA,10.4,8.0,
 Ernest Udeh Jr.,CLE,10.4,8.0,
 Tarik Biberovic,DAL,10.4,8.0,Out
