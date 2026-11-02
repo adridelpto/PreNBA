@@ -48,11 +48,15 @@ table.props td,table.props th{white-space:nowrap;text-align:center}
 table.props td:nth-child(1),table.props th:nth-child(1){text-align:left}
 .pv{font-weight:650}.rg{display:block;color:var(--muted);font-size:11px}
 .real.hi{color:var(--good);font-weight:600}.real.lo{color:var(--bad);font-weight:600}.inj{color:var(--bad);font-size:12px}
+
+.nav{align-items:center}
+.nav .refresh{margin-left:auto;border:1px solid var(--border);border-radius:8px;padding:6px 12px;margin-bottom:6px;color:var(--text);font-weight:500;font-size:14px}
+.nav .refresh:hover{border-color:var(--accent);color:var(--accent)}
 </style>
 </head>
 <body>
 <main>
-<nav class="nav"><a href="index.html" class="on">🏀 NBA</a><a href="futbol.html">⚽ Fútbol</a></nav>
+<nav class="nav"><a href="index.html" class="on">🏀 NBA</a><a href="futbol.html">⚽ Fútbol</a><a class="refresh" href="https://github.com/adridelpto/PreNBA/actions/workflows/actualizar.yml" target="_blank" rel="noopener" title="Abre GitHub: pulsa Run workflow y, en 2-3 minutos, recarga esta página">🔄 Actualizar datos</a></nav>
 <div class="top"><div><h1>Predicciones NBA</h1><div class="sub" id="upd"></div></div>
 <div class="toggle" id="toggle"></div></div>
 <div class="sub" id="desc" style="margin-top:10px"></div>

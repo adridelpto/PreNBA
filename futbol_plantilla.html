@@ -39,11 +39,15 @@ tr.game{cursor:pointer}tr.game:hover td,tr.sel td{background:var(--bar)}
 .desde{font-size:14px;color:var(--muted)}
 .desde select{background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 8px;font:inherit;font-size:14px;margin-left:6px}
 .scroll{overflow-x:auto}.chartbox{position:relative;height:280px}
+
+.nav{align-items:center}
+.nav .refresh{margin-left:auto;border:1px solid var(--border);border-radius:8px;padding:6px 12px;margin-bottom:6px;color:var(--text);font-weight:500;font-size:14px}
+.nav .refresh:hover{border-color:var(--accent);color:var(--accent)}
 </style>
 </head>
 <body>
 <main>
-<nav class="nav"><a href="index.html">🏀 NBA</a><a href="futbol.html" class="on">⚽ Fútbol</a></nav>
+<nav class="nav"><a href="index.html">🏀 NBA</a><a href="futbol.html" class="on">⚽ Fútbol</a><a class="refresh" href="https://github.com/adridelpto/PreNBA/actions/workflows/actualizar.yml" target="_blank" rel="noopener" title="Abre GitHub: pulsa Run workflow y, en 2-3 minutos, recarga esta página">🔄 Actualizar datos</a></nav>
 <div class="top"><div><h1>Predicciones LaLiga</h1><div class="sub" id="upd"></div></div>
 <label class="desde">Datos desde la temporada <select id="selDesde"></select></label></div>
 <div class="sub" style="margin-top:8px">Modelo de goles: cada equipo tiene un rating de ataque y de defensa calculado con los resultados de LaLiga desde la temporada elegida (los recientes pesan más: un partido de hace 6 meses cuenta la mitad). De ahí salen los goles esperados y la probabilidad de 1 (gana el local), X (empate) y 2 (gana el visitante).</div>
