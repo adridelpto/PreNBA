@@ -2,57 +2,57 @@
  "pts": {
   "nombre": "Puntos",
   "error_modelo": 4.91,
-  "error_media": 5.09,
-  "n": 1619,
-  "escala_rango": 1.45
+  "error_media": 5.05,
+  "n": 1887,
+  "escala_rango": 1.44
  },
  "reb": {
   "nombre": "Rebotes",
-  "error_modelo": 1.9,
-  "error_media": 1.99,
-  "n": 1619,
+  "error_modelo": 1.89,
+  "error_media": 1.97,
+  "n": 1887,
   "escala_rango": 1.13
  },
  "ast": {
   "nombre": "Asistencias",
-  "error_modelo": 1.43,
+  "error_modelo": 1.42,
   "error_media": 1.47,
-  "n": 1619,
-  "escala_rango": 1.13
+  "n": 1887,
+  "escala_rango": 1.12
  },
  "tri": {
   "nombre": "Triples",
-  "error_modelo": 0.97,
+  "error_modelo": 0.98,
   "error_media": 1.0,
-  "n": 1619,
-  "escala_rango": 1.09
+  "n": 1887,
+  "escala_rango": 1.1
  },
  "tiros": {
   "nombre": "Tiros de campo",
-  "error_modelo": 2.88,
+  "error_modelo": 2.9,
   "error_media": 2.97,
-  "n": 1619,
-  "escala_rango": 1.0
+  "n": 1887,
+  "escala_rango": 1.01
  },
  "rob": {
   "nombre": "Robos",
-  "error_modelo": 0.77,
-  "error_media": 0.81,
-  "n": 1619,
-  "escala_rango": 1.04
+  "error_modelo": 0.76,
+  "error_media": 0.8,
+  "n": 1887,
+  "escala_rango": 1.03
  },
  "tap": {
   "nombre": "Tapones",
   "error_modelo": 0.56,
   "error_media": 0.56,
-  "n": 1619,
-  "escala_rango": 0.83
+  "n": 1887,
+  "escala_rango": 0.85
  },
  "pra": {
   "nombre": "P+R+A",
-  "error_modelo": 6.24,
-  "error_media": 6.51,
-  "n": 1619,
+  "error_modelo": 6.22,
+  "error_media": 6.44,
+  "n": 1887,
   "escala_rango": 1.42
  }
 }
