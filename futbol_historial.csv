@@ -108,4 +108,6 @@ fecha,local,visitante,p1,px,p2,goles_esp_local,goles_esp_visit,goles_local,goles
 2026-11-01,Elche,Valencia,0.528,0.263,0.209,1.66,0.96,0,1,2,1,0
 2026-11-01,Athletic Club,Real Sociedad,0.494,0.252,0.254,1.76,1.21,2,1,1,1,1
 2026-11-02,Deportivo,Osasuna,0.494,0.277,0.229,1.53,0.97,2,1,1,1,1
-2026-12-09,Rayo Vallecano,Athletic Club,0.416,0.295,0.289,1.33,1.06,0,0,X,1,0
+2026-11-06,Sevilla,Alavés,0.489,0.26,0.25,1.67,1.14,0,0,X,1,0
+2026-11-07,Málaga,Racing Santander,0.445,0.258,0.297,1.66,1.32,1,2,2,1,0
+2026-12-09,Rayo Vallecano,Athletic Club,0.416,0.294,0.29,1.33,1.07,0,0,X,1,0
