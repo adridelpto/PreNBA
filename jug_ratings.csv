@@ -1,31 +1,31 @@
 equipo,elo,elo_resultados,elo_plantilla,mejor_jugador,bajas
-DEN,1640.5,1517.8,1679.7,Nikola Jokic,Julian Strawther
-SA,1623.9,1574.4,1643.8,Victor Wembanyama,"Tobias Harris, Jayden Quaintance"
-PHI,1621.3,1532.1,1656.9,Joel Embiid,"Adem Bona, Dominick Barlow, Ariel Hukporti"
-CLE,1598.3,1512.3,1632.7,Donovan Mitchell,Jaylon Tyson
-LAL,1591.5,1560.8,1603.8,Luka Doncic,
-MIA,1572.6,1464.4,1611.6,Giannis Antetokounmpo,
-HOU,1568.7,1556.3,1573.7,Kevin Durant,"Clint Capela, Steven Adams"
-NO,1552.5,1496.3,1572.8,Zion Williamson,Yves Missi
-BOS,1536.4,1556.5,1529.1,Jayson Tatum,
-NY,1535.5,1524.6,1539.5,Jalen Brunson,
-WSH,1515.3,1471.9,1532.7,Anthony Davis,"Reece Beekman, Tristan Vukcevic, Justin Champagnie, Jamir Watkins"
-GS,1514.6,1542.8,1503.3,Stephen Curry,"Kristaps Porzingis, Moses Moody, Jimmy Butler III"
-OKC,1513.7,1570.0,1491.1,Shai Gilgeous-Alexander,"Jaylin Williams, Thomas Sorber, Cason Wallace, Chet Holmgren, Jalen Williams"
-POR,1502.8,1531.8,1492.4,Damian Lillard,"Ja Morant, Vit Krejci, Shaedon Sharpe"
-DAL,1498.3,1500.5,1497.6,Cooper Flagg,"Sergio de Larrea, Tarik Biberovic, Dereck Lively II"
-MIN,1494.5,1573.4,1462.9,LaMelo Ball,"Anthony Edwards, Donte DiVincenzo"
-IND,1493.5,1459.3,1507.1,Pascal Siakam,"Tyrese Haliburton, Johnny Furphy, Ben Sheppard"
-MEM,1489.7,1521.9,1478.1,Ty Jerome,"Richie Saunders, Isaiah Stewart, Scotty Pippen Jr."
-TOR,1479.1,1523.8,1463.1,Scottie Barnes,"Kawhi Leonard, Nate Bittle"
-ATL,1474.9,1532.6,1449.6,Jalen Johnson,"Jock Landale, Mouhamed Gueye, Henri Veesaar"
-DET,1468.4,1557.0,1440.0,Cade Cunningham,"Jalen Duren, Isaiah Joe"
-PHX,1467.6,1469.3,1467.1,Devin Booker,"Jordan Goodwin, Mark Williams"
-CHI,1439.9,1425.9,1444.3,Norman Powell,"Nic Claxton, Zach Collins"
-MIL,1437.3,1414.7,1445.4,Tyler Herro,
-ORL,1432.8,1444.2,1428.6,Franz Wagner,"Jonathan Isaac, Jalen Suggs, Paolo Banchero, Noah Penda, Izaiyah Nelson"
-SAC,1429.6,1429.5,1429.6,Domantas Sabonis,"Keegan Murray, Maxime Raynaud, Ben Simmons"
-UTAH,1402.0,1423.7,1394.1,Lauri Markkanen,"Jusuf Nurkic, Jaren Jackson Jr."
-BKN,1399.5,1454.3,1379.8,Julius Randle,"Mikel Brown Jr., Egor Demin"
-CHA,1358.2,1407.1,1338.7,Brandon Miller,"Dennis Schroder, Kon Knueppel, Grant Williams"
-LAC,1344.9,1450.8,1310.9,Darius Garland,"Brandon Ingram, Isaiah Jackson, Yanic Konan Niederhauser, Bradley Beal, Jordan Miller"
+DEN,1637.9,1517.8,1676.3,Nikola Jokic,Julian Strawther
+SA,1626.7,1574.4,1647.7,Victor Wembanyama,"Devin Vassell, Tobias Harris, Jayden Quaintance"
+CLE,1612.9,1512.3,1653.1,Donovan Mitchell,"Sam Merrill, Jaylon Tyson"
+PHI,1610.8,1538.8,1642.5,Joel Embiid,"Dominick Barlow, Ariel Hukporti"
+LAL,1601.2,1569.6,1615.2,Luka Doncic,Quentin Grimes
+MIA,1568.3,1473.1,1606.3,Giannis Antetokounmpo,
+HOU,1562.5,1556.3,1565.0,Kevin Durant,"Oscar Tshiebwe, Clint Capela, Steven Adams"
+NO,1543.9,1483.4,1568.0,Zion Williamson,Yves Missi
+BOS,1542.8,1568.9,1532.4,Jayson Tatum,
+NY,1533.1,1524.6,1536.1,Jalen Brunson,
+GS,1526.5,1542.8,1520.0,Stephen Curry,"Will Richard, Kristaps Porzingis, Moses Moody, Jimmy Butler III"
+OKC,1515.1,1570.0,1493.2,Shai Gilgeous-Alexander,"Jaylin Williams, Thomas Sorber, Cason Wallace, Chet Holmgren, Jalen Williams"
+WSH,1512.9,1471.9,1529.3,Anthony Davis,"Tristan Vukcevic, Reece Beekman, Justin Champagnie, Jamir Watkins"
+DAL,1501.5,1514.5,1496.2,Cooper Flagg,"Sergio de Larrea, Tarik Biberovic, Dereck Lively II"
+POR,1500.3,1531.8,1489.0,Damian Lillard,"Ja Morant, Vit Krejci, Shaedon Sharpe"
+MIN,1494.5,1578.5,1457.5,LaMelo Ball,"Anthony Edwards, Donte DiVincenzo"
+IND,1491.1,1459.3,1503.8,Pascal Siakam,"Tyrese Haliburton, Johnny Furphy, Ben Sheppard"
+MEM,1487.2,1521.9,1474.7,Ty Jerome,"Scotty Pippen Jr., Isaiah Stewart, Richie Saunders"
+TOR,1476.6,1523.8,1459.6,Scottie Barnes,"Nate Bittle, Kawhi Leonard"
+ATL,1472.1,1532.6,1445.5,Jalen Johnson,"Asa Newell, Keshon Gilbert, Jock Landale, Mouhamed Gueye, Henri Veesaar"
+DET,1467.0,1548.2,1437.8,Cade Cunningham,"Isaiah Joe, Jalen Duren"
+PHX,1465.1,1469.3,1463.7,Devin Booker,"Jordan Goodwin, Mark Williams"
+CHI,1456.5,1419.2,1469.9,Josh Giddey,
+ORL,1430.3,1444.2,1425.3,Franz Wagner,"Jonathan Isaac, Jalen Suggs, Paolo Banchero, Noah Penda, Izaiyah Nelson"
+MIL,1429.5,1402.4,1440.3,Tyler Herro,
+SAC,1428.2,1420.7,1431.1,Domantas Sabonis,"Maxime Raynaud, Ben Simmons"
+UTAH,1407.9,1418.6,1403.7,Lauri Markkanen,"Jusuf Nurkic, Jaren Jackson Jr."
+BKN,1397.4,1440.2,1380.3,Julius Randle,Egor Demin
+LAC,1370.8,1463.6,1337.3,Darius Garland,"Brandon Ingram, Yanic Konan Niederhauser, Bradley Beal, Jordan Miller"
+CHA,1330.0,1407.1,1299.2,Naz Reid,"Grant Williams, Kon Knueppel, Dennis Schroder, Brandon Miller"
