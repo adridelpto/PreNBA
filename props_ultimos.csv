@@ -1,114 +1,4 @@
 fecha,jugador,equipo,rival,min_real,pts_proy,reb_proy,ast_proy,tri_proy,pts_real,reb_real,ast_real,tri_real
-2026-11-19,Tacko Fall,PHI,ORL,10,1.3,0.6,0.3,0.2,2,3,0,0
-2026-11-19,Labaron Philon Jr.,PHI,ORL,17,2.1,0.8,0.5,0.3,10,1,2,2
-2026-11-19,Franz Wagner,ORL,PHI,36,25.2,6.8,5.5,1.6,27,8,11,1
-2026-11-19,Wendell Carter Jr.,ORL,PHI,32,12.5,8.5,2.0,0.9,15,8,3,2
-2026-11-19,Desmond Bane,ORL,PHI,38,20.3,5.1,4.3,2.3,15,3,3,5
-2026-11-19,Jalen Suggs,ORL,PHI,31,14.1,4.3,5.0,2.0,18,8,4,5
-2026-11-19,Anthony Black,ORL,PHI,37,16.1,4.7,4.4,1.6,15,2,6,2
-2026-11-19,Tristan da Silva,ORL,PHI,27,12.5,4.8,2.1,2.0,12,2,0,2
-2026-11-19,Goga Bitadze,ORL,PHI,20,5.5,4.7,1.2,0.1,8,3,1,0
-2026-11-19,Jevon Carter,ORL,PHI,16,5.9,1.7,1.6,1.2,6,2,3,2
-2026-11-19,Jalen Smith,CHI,BKN,21,13.2,7.9,1.8,1.9,14,6,3,2
-2026-11-19,Isaac Okoro,CHI,BKN,25,9.5,2.9,1.8,1.2,12,3,4,4
-2026-11-19,Matas Buzelis,CHI,BKN,30,15.7,5.4,2.0,2.2,25,5,4,5
-2026-11-19,Norman Powell,CHI,BKN,26,20.9,3.2,2.3,2.6,17,2,5,5
-2026-11-19,Josh Giddey,CHI,BKN,28,14.4,6.9,7.8,1.6,18,14,9,1
-2026-11-19,Zach Collins,CHI,BKN,11,4.7,2.9,1.2,0.4,3,2,0,1
-2026-11-19,Patrick Williams,CHI,BKN,13,8.3,3.3,1.8,1.5,2,1,2,0
-2026-11-19,Noa Essengue,CHI,BKN,15,4.8,2.4,0.9,0.5,5,3,0,0
-2026-11-19,Nic Claxton,CHI,BKN,22,7.7,4.5,2.1,0.1,14,4,1,0
-2026-11-19,Buddy Hield,CHI,BKN,19,7.9,2.3,1.4,1.6,11,1,2,3
-2026-11-19,Tre Jones,CHI,BKN,16,10.3,2.4,3.9,0.5,10,2,6,0
-2026-11-19,Julius Randle,BKN,CHI,27,21.0,6.9,5.1,1.4,17,0,4,3
-2026-11-19,Michael Porter Jr.,BKN,CHI,27,23.2,7.6,2.7,3.1,5,3,1,1
-2026-11-19,Day'Ron Sharpe,BKN,CHI,22,11.4,8.6,3.4,0.3,6,5,1,0
-2026-11-19,Egor Demin,BKN,CHI,31,9.8,2.9,3.0,2.0,22,4,4,3
-2026-11-19,Nolan Traore,BKN,CHI,23,11.3,2.2,3.9,1.3,13,1,4,1
-2026-11-19,Noah Clowney,BKN,CHI,19,9.7,3.7,1.3,1.5,7,3,1,1
-2026-11-19,Danny Wolf,BKN,CHI,23,11.5,6.2,2.8,1.6,6,6,2,1
-2026-11-19,Moritz Wagner,BKN,CHI,20,10.4,4.1,1.4,0.9,11,2,3,2
-2026-11-19,Mikel Brown Jr.,BKN,CHI,27,11.4,2.7,3.5,1.7,15,1,4,2
-2026-11-19,Anthony Davis,WSH,TOR,34,24.1,11.0,3.1,0.7,25,14,2,2
-2026-11-19,AJ Dybantsa,WSH,TOR,38,16.2,6.2,2.6,1.1,23,12,2,0
-2026-11-19,Kyshawn George,WSH,TOR,40,15.4,5.3,4.3,2.2,20,2,4,4
-2026-11-19,Alex Sarr,WSH,TOR,22,15.2,7.3,2.6,1.3,13,2,3,3
-2026-11-19,Trae Young,WSH,TOR,32,21.6,3.1,10.0,2.4,11,1,8,1
-2026-11-19,Khris Middleton,WSH,TOR,20,6.1,2.1,1.7,0.7,8,4,1,1
-2026-11-19,Bilal Coulibaly,WSH,TOR,26,9.2,3.7,2.0,0.8,3,8,2,0
-2026-11-19,Will Riley,WSH,TOR,10,3.8,1.0,0.7,0.4,0,3,0,0
-2026-11-19,Jamison Battle,TOR,WSH,33,7.8,2.8,1.0,1.5,19,5,0,5
-2026-11-19,Jakob Poeltl,TOR,WSH,29,10.8,7.3,2.1,0.1,8,9,5,0
-2026-11-19,Immanuel Quickley,TOR,WSH,34,17.4,4.3,6.3,2.5,24,3,5,4
-2026-11-19,Ja'Kobe Walter,TOR,WSH,38,12.9,4.6,2.3,2.3,18,7,6,3
-2026-11-19,Trayce Jackson-Davis,TOR,WSH,17,2.7,2.1,0.6,0.0,3,7,1,0
-2026-11-19,Allen Graves,TOR,WSH,31,5.4,2.8,1.2,0.6,9,4,0,1
-2026-11-19,Jamal Shead,TOR,WSH,24,8.2,2.2,6.1,1.1,15,1,6,1
-2026-11-19,Alijah Martin,TOR,WSH,17,6.2,2.4,1.3,0.8,2,2,0,0
-2026-11-19,John Collins,DET,NO,30,14.1,5.7,1.2,1.3,20,7,2,4
-2026-11-19,Javonte Green,DET,NO,35,6.2,2.7,0.7,0.9,18,7,0,3
-2026-11-19,Kevin Huerter,DET,NO,36,13.5,4.3,3.3,2.0,11,1,7,1
-2026-11-19,Ausar Thompson,DET,NO,34,11.7,6.7,3.8,0.2,10,7,4,0
-2026-11-19,Daniss Jenkins,DET,NO,36,16.4,4.2,6.2,1.9,17,4,9,3
-2026-11-19,Paul Reed,DET,NO,20,13.4,7.8,2.5,0.5,17,7,1,0
-2026-11-19,Isaiah Joe,DET,NO,16,7.2,1.7,1.0,1.6,11,2,2,3
-2026-11-19,Elijah Harkless,DET,NO,14,1.1,0.4,0.4,0.1,6,2,4,0
-2026-11-19,Chaz Lanier,DET,NO,16,3.1,0.9,0.6,0.5,9,1,0,3
-2026-11-19,Herbert Jones,NO,DET,32,7.7,3.2,2.2,1.1,9,1,3,3
-2026-11-19,Zion Williamson,NO,DET,32,21.3,6.1,3.3,0.2,24,7,1,0
-2026-11-19,Saddiq Bey,NO,DET,42,17.1,5.4,2.4,2.0,10,8,6,2
-2026-11-19,Yves Missi,NO,DET,17,6.6,6.5,1.2,0.1,4,5,2,0
-2026-11-19,Jeremiah Fears,NO,DET,31,16.0,4.6,4.1,1.3,16,5,4,2
-2026-11-19,Karlo Matkovic,NO,DET,10,7.2,4.5,1.0,0.8,0,2,0,0
-2026-11-19,DeAndre Jordan,NO,DET,10,4.9,5.6,1.1,0.1,8,2,1,0
-2026-11-19,Derik Queen,NO,DET,19,10.1,6.1,2.7,0.3,9,5,0,0
-2026-11-19,Jordan Poole,NO,DET,30,14.2,2.4,3.2,2.3,22,1,5,3
-2026-11-19,Jaron Pierre Jr.,NO,DET,17,6.3,2.5,0.9,0.9,7,1,1,1
-2026-11-19,Onyeka Okongwu,ATL,OKC,36,14.8,8.4,2.9,1.7,28,9,2,5
-2026-11-19,Jalen Johnson,ATL,OKC,34,20.4,9.8,6.9,1.5,16,12,11,1
-2026-11-19,Nickeil Alexander-Walker,ATL,OKC,32,18.3,3.7,3.4,3.2,19,4,7,3
-2026-11-19,Aaron Wiggins,ATL,OKC,26,11.9,3.9,2.0,2.1,14,3,1,4
-2026-11-19,Dyson Daniels,ATL,OKC,37,11.3,6.3,4.9,0.5,10,10,4,0
-2026-11-19,Corey Kispert,ATL,OKC,17,5.6,1.4,0.9,1.0,8,1,2,2
-2026-11-19,Zuby Ejiofor,ATL,OKC,12,5.4,2.7,1.3,0.7,3,3,0,1
-2026-11-19,Luguentz Dort,ATL,OKC,31,7.4,3.1,1.2,1.7,16,3,0,3
-2026-11-19,RayJ Dennis,ATL,OKC,10,4.3,1.6,1.6,0.7,3,3,5,1
-2026-11-19,Isaiah Hartenstein,OKC,ATL,27,9.7,9.8,3.6,0.1,6,17,6,0
-2026-11-19,Aday Mara,OKC,ATL,27,10.8,6.8,2.0,0.4,10,6,8,0
-2026-11-19,Shai Gilgeous-Alexander,OKC,ATL,36,30.7,4.6,6.1,1.8,34,5,3,1
-2026-11-19,Jared McCain,OKC,ATL,33,14.3,3.5,2.4,2.2,18,3,1,4
-2026-11-19,Ajay Mitchell,OKC,ATL,34,14.9,3.7,3.7,1.1,13,6,6,0
-2026-11-19,Jaylin Williams,OKC,ATL,16,6.8,5.5,2.4,1.3,3,1,1,1
-2026-11-19,Kenrich Williams,OKC,ATL,23,9.2,4.8,2.0,1.3,10,5,1,0
-2026-11-19,Nique Clifford,OKC,ATL,13,4.6,2.1,1.3,0.5,7,0,0,1
-2026-11-19,Bennett Stirtz,OKC,ATL,17,8.2,1.9,1.6,1.4,6,0,2,2
-2026-11-19,Draymond Green,GS,DAL,23,7.3,5.1,5.3,1.1,3,1,2,1
-2026-11-19,Yaxel Lendeborg,GS,DAL,30,19.8,7.1,3.5,2.1,13,5,4,0
-2026-11-19,Charles Bassey,GS,DAL,22,7.3,5.1,0.9,0.2,10,8,0,0
-2026-11-19,LJ Cryer,GS,DAL,19,7.9,1.6,1.6,1.7,9,0,2,3
-2026-11-19,Brandin Podziemski,GS,DAL,29,15.0,5.6,4.1,2.1,10,3,4,0
-2026-11-19,Georges Niang,GS,DAL,14,8.3,3.1,1.4,1.5,11,1,1,2
-2026-11-19,Graham Ike,GS,DAL,15,4.1,1.9,1.0,0.4,2,2,2,0
-2026-11-19,Gui Santos,GS,DAL,17,7.2,3.6,2.0,0.9,6,6,6,0
-2026-11-19,Gary Payton II,GS,DAL,16,5.8,2.7,1.2,0.4,8,8,2,2
-2026-11-19,De'Anthony Melton,GS,DAL,19,11.0,3.4,2.5,1.6,0,2,2,0
-2026-11-19,Will Richard,GS,DAL,27,6.5,2.5,1.4,1.0,20,0,3,1
-2026-11-19,Caleb Martin,DAL,GS,20,6.9,3.7,2.2,0.8,8,5,3,2
-2026-11-19,Daniel Gafford,DAL,GS,24,9.0,5.7,1.3,0.1,6,6,2,0
-2026-11-19,P.J. Washington,DAL,GS,25,12.5,6.3,1.7,1.4,21,5,2,5
-2026-11-19,Cooper Flagg,DAL,GS,34,20.5,6.4,4.8,1.1,33,5,9,3
-2026-11-19,Kyrie Irving,DAL,GS,29,21.3,4.1,4.2,2.7,17,6,5,1
-2026-11-19,Naji Marshall,DAL,GS,27,11.8,3.8,2.8,0.7,12,5,2,2
-2026-11-19,Morez Johnson Jr.,DAL,GS,15,7.4,4.5,1.6,0.4,3,1,1,0
-2026-11-19,Zaccharie Risacher,DAL,GS,18,9.4,3.6,1.2,1.3,3,3,0,1
-2026-11-19,Walter Clayton Jr.,DAL,GS,27,7.4,2.2,3.6,1.0,8,2,7,2
-2026-11-19,Paul George,BOS,DEN,23,16.4,5.1,3.7,2.6,10,4,1,1
-2026-11-19,Jayson Tatum,BOS,DEN,37,23.9,7.9,5.9,3.0,24,8,3,3
-2026-11-19,Neemias Queta,BOS,DEN,27,8.6,6.7,1.5,0.1,17,10,3,0
-2026-11-19,Derrick White,BOS,DEN,35,13.7,3.7,4.5,2.5,12,3,8,0
-2026-11-19,Sam Hauser,BOS,DEN,17,7.8,3.2,1.2,2.2,9,2,2,3
-2026-11-19,Chris Cenac Jr.,BOS,DEN,17,2.9,1.2,0.5,0.3,6,6,0,1
-2026-11-19,Mitchell Robinson,BOS,DEN,16,5.0,6.5,0.9,0.1,6,4,1,0
 2026-11-19,Payton Pritchard,BOS,DEN,30,14.3,3.5,4.2,2.6,15,1,2,3
 2026-11-19,Baylor Scheierman,BOS,DEN,13,6.0,3.6,1.6,1.3,0,1,1,0
 2026-11-19,Hugo Gonzalez,BOS,DEN,16,3.6,2.6,0.6,0.5,2,6,0,0
@@ -399,3 +289,113 @@ fecha,jugador,equipo,rival,min_real,pts_proy,reb_proy,ast_proy,tri_proy,pts_real
 2026-11-21,Jake LaRavia,LAL,SAC,24,8.9,4.4,2.3,1.1,6,3,0,1
 2026-11-21,Collin Sexton,LAL,SAC,18,13.6,2.0,2.9,1.3,10,1,4,0
 2026-11-21,Cameron Carr,LAL,SAC,12,2.1,0.8,0.4,0.2,5,1,0,1
+2026-11-21,Kyle Kuzma,MIL,PHI,33,12.9,5.0,2.5,1.3,12,5,1,2
+2026-11-21,Jaime Jaquez Jr.,MIL,PHI,25,13.8,5.1,3.8,0.9,9,0,1,1
+2026-11-21,Myles Turner,MIL,PHI,26,11.2,5.4,1.6,1.7,5,6,5,1
+2026-11-21,Tyler Herro,MIL,PHI,40,18.9,4.4,4.1,2.4,50,11,7,7
+2026-11-21,Ryan Rollins,MIL,PHI,28,11.9,3.7,3.8,1.6,8,6,1,0
+2026-11-21,Nate Ament,MIL,PHI,14,9.2,3.7,1.1,1.1,2,1,0,0
+2026-11-21,Kel'el Ware,MIL,PHI,22,9.6,7.7,0.8,0.9,6,8,3,0
+2026-11-21,AJ Green,MIL,PHI,12,4.2,1.2,0.8,1.1,9,0,0,3
+2026-11-21,Brayden Burries,MIL,PHI,26,11.0,5.5,2.5,1.2,26,8,4,2
+2026-11-21,Kasparas Jakucionis,MIL,PHI,10,7.9,2.9,2.9,1.2,2,3,3,0
+2026-11-21,LeBron James,PHI,MIL,35,20.8,6.8,7.1,1.5,21,6,6,0
+2026-11-21,Joel Embiid,PHI,MIL,34,24.8,8.3,4.0,1.2,26,17,9,0
+2026-11-21,Kentavious Caldwell-Pope,PHI,MIL,35,8.5,2.8,2.3,1.4,11,1,2,3
+2026-11-21,Tyrese Maxey,PHI,MIL,36,26.8,3.9,6.1,3.1,17,4,4,0
+2026-11-21,VJ Edgecombe,PHI,MIL,38,16.0,6.2,4.2,2.1,16,3,6,1
+2026-11-21,Jabari Walker,PHI,MIL,20,6.6,4.4,0.9,0.7,9,7,4,0
+2026-11-21,Dominick Barlow,PHI,MIL,11,8.4,5.1,1.4,0.4,12,4,1,1
+2026-11-21,Anfernee Simons,PHI,MIL,26,13.6,2.4,2.6,2.5,18,0,1,4
+2026-11-22,Toumani Camara,POR,NY,35,12.0,4.8,2.2,2.4,6,5,0,1
+2026-11-22,Deni Avdija,POR,NY,36,20.5,6.5,5.4,1.9,20,9,5,2
+2026-11-22,Donovan Clingan,POR,NY,31,10.6,10.4,1.9,0.9,22,13,4,3
+2026-11-22,Damian Lillard,POR,NY,33,19.6,3.7,4.9,3.0,15,3,3,1
+2026-11-22,Sidy Cissoko,POR,NY,23,7.6,3.4,2.1,1.2,11,2,1,3
+2026-11-22,Robert Williams III,POR,NY,17,6.0,5.8,1.0,0.2,4,3,0,0
+2026-11-22,Jrue Holiday,POR,NY,31,12.9,3.9,4.6,2.2,13,9,7,1
+2026-11-22,Scoot Henderson,POR,NY,23,11.2,2.5,3.3,1.5,3,1,1,0
+2026-11-22,Andre Drummond,NY,POR,23,4.2,5.2,0.8,0.2,7,13,1,1
+2026-11-22,Josh Hart,NY,POR,35,10.1,6.6,3.9,1.1,0,8,6,0
+2026-11-22,Mikal Bridges,NY,POR,28,11.6,2.9,2.6,1.4,12,2,3,2
+2026-11-22,Landry Shamet,NY,POR,36,10.6,2.1,1.5,2.1,20,1,3,6
+2026-11-22,Jalen Brunson,NY,POR,36,25.8,3.2,6.3,2.5,30,7,5,6
+2026-11-22,Pacome Dadiet,NY,POR,11,1.7,0.8,0.3,0.2,5,0,2,1
+2026-11-22,James Wiseman,NY,POR,25,1.9,1.1,0.4,0.2,5,6,2,0
+2026-11-22,Jose Alvarado,NY,POR,15,3.1,1.0,1.3,0.6,8,2,2,2
+2026-11-22,Miles McBride,NY,POR,14,6.9,1.6,1.5,1.4,3,0,1,1
+2026-11-22,Tyler Kolek,NY,POR,13,4.9,1.9,3.2,0.7,7,3,0,0
+2026-11-22,Derrick Jones Jr.,LAC,DAL,26,10.8,3.8,1.3,1.2,4,7,1,1
+2026-11-22,Rui Hachimura,LAC,DAL,29,11.7,4.0,1.2,1.6,19,8,1,4
+2026-11-22,Brook Lopez,LAC,DAL,25,10.9,4.3,1.7,1.6,21,6,0,1
+2026-11-22,Max Strus,LAC,DAL,29,9.9,4.3,3.0,2.2,5,6,3,1
+2026-11-22,Darius Garland,LAC,DAL,32,20.9,2.8,7.2,2.7,16,1,2,2
+2026-11-22,Yanic Konan Niederhauser,LAC,DAL,16,4.5,2.7,0.5,0.2,6,6,1,0
+2026-11-22,Kris Dunn,LAC,DAL,19,6.3,3.0,3.1,0.8,3,4,5,1
+2026-11-22,Kobe Sanders,LAC,DAL,19,7.4,2.4,1.9,1.1,9,3,1,3
+2026-11-22,Gradey Dick,LAC,DAL,16,7.6,2.3,1.0,1.0,6,5,2,0
+2026-11-22,Keaton Wagler,LAC,DAL,19,11.3,3.4,2.8,1.4,7,7,3,1
+2026-11-22,Caleb Martin,DAL,LAC,20,7.2,3.8,2.3,0.8,0,4,3,0
+2026-11-22,Daniel Gafford,DAL,LAC,31,9.6,5.9,1.3,0.1,10,10,3,0
+2026-11-22,Cooper Flagg,DAL,LAC,36,21.8,6.5,5.0,1.1,22,6,8,3
+2026-11-22,Zaccharie Risacher,DAL,LAC,29,9.6,3.6,1.2,1.3,11,7,1,1
+2026-11-22,Kyrie Irving,DAL,LAC,35,21.9,4.2,4.3,2.8,25,6,4,3
+2026-11-22,Naji Marshall,DAL,LAC,14,12.9,4.0,3.1,0.8,4,3,1,0
+2026-11-22,Morez Johnson Jr.,DAL,LAC,17,7.0,4.1,1.5,0.4,9,7,2,1
+2026-11-22,Max Christie,DAL,LAC,24,5.1,1.5,0.9,0.9,13,4,0,3
+2026-11-22,Walter Clayton Jr.,DAL,LAC,25,8.2,2.4,4.0,1.2,16,5,1,2
+2026-11-22,Cedric Coward,MEM,MIN,30,14.6,7.0,3.1,1.8,23,7,2,4
+2026-11-22,Jaylen Wells,MEM,MIN,25,11.2,3.3,1.6,1.7,8,1,0,0
+2026-11-22,Zach Edey,MEM,MIN,23,9.1,7.7,1.0,0.3,8,2,0,0
+2026-11-22,Ty Jerome,MEM,MIN,27,21.0,3.8,5.3,2.5,18,4,6,3
+2026-11-22,Jahmai Mashack,MEM,MIN,22,2.6,1.2,1.0,0.3,0,2,1,0
+2026-11-22,Kris Murray,MEM,MIN,12,2.1,1.3,0.5,0.2,7,0,0,1
+2026-11-22,Olivier-Maxence Prosper,MEM,MIN,23,6.5,2.6,0.8,0.6,7,6,0,0
+2026-11-22,Taylor Hendricks,MEM,MIN,27,7.6,3.7,1.0,1.0,5,7,2,0
+2026-11-22,Isaiah Stewart,MEM,MIN,21,6.8,3.9,1.0,0.4,10,2,1,0
+2026-11-22,Cam Spencer,MEM,MIN,30,12.0,3.1,5.8,2.1,9,5,5,0
+2026-11-22,Jaden McDaniels,MIN,MEM,36,15.1,5.1,2.7,1.4,25,5,4,1
+2026-11-22,Jonathan Kuminga,MIN,MEM,37,15.4,5.9,2.8,1.3,16,4,2,2
+2026-11-22,Rudy Gobert,MIN,MEM,32,9.7,9.6,1.5,0.1,7,11,2,0
+2026-11-22,Ayo Dosunmu,MIN,MEM,34,16.4,4.0,4.0,1.8,19,2,2,1
+2026-11-22,LaMelo Ball,MIN,MEM,32,20.0,4.6,6.5,3.4,12,5,7,1
+2026-11-22,Trey Lyles,MIN,MEM,12,6.8,4.1,1.3,1.1,3,3,1,1
+2026-11-22,Joan Beringer,MIN,MEM,16,7.1,5.3,0.8,0.2,0,4,0,0
+2026-11-22,Terrence Shannon Jr.,MIN,MEM,26,11.4,2.9,2.3,1.2,15,5,2,3
+2026-11-22,Bones Hyland,MIN,MEM,16,8.9,1.8,2.5,1.6,7,0,4,1
+2026-11-22,Herbert Jones,NO,SA,25,8.4,3.3,2.4,1.3,2,4,2,0
+2026-11-22,Saddiq Bey,NO,SA,32,18.6,5.8,2.8,2.3,2,5,2,0
+2026-11-22,Derik Queen,NO,SA,35,10.0,5.8,2.8,0.3,15,15,0,0
+2026-11-22,Yves Missi,NO,SA,35,6.0,5.8,1.2,0.1,9,13,1,0
+2026-11-22,Jeremiah Fears,NO,SA,34,16.6,4.7,4.4,1.4,29,5,4,2
+2026-11-22,Karlo Matkovic,NO,SA,15,5.9,3.6,0.9,0.7,3,3,0,1
+2026-11-22,Jordan Poole,NO,SA,31,13.2,2.1,3.1,2.2,25,3,2,3
+2026-11-22,Jaron Pierre Jr.,NO,SA,25,6.1,2.3,0.9,0.9,6,5,0,2
+2026-11-22,Julian Champagnie,SA,NO,25,11.8,5.3,1.7,2.5,9,3,3,3
+2026-11-22,Victor Wembanyama,SA,NO,32,26.9,11.6,3.5,2.2,50,19,1,5
+2026-11-22,De'Aaron Fox,SA,NO,26,17.7,3.8,5.7,1.5,5,2,10,0
+2026-11-22,Devin Vassell,SA,NO,26,14.3,3.9,2.7,2.2,10,3,2,2
+2026-11-22,Stephon Castle,SA,NO,29,17.4,5.1,6.6,1.4,19,3,6,5
+2026-11-22,Harrison Barnes,SA,NO,21,6.3,1.7,1.1,1.0,3,5,2,0
+2026-11-22,Keldon Johnson,SA,NO,23,13.4,5.5,1.8,1.1,10,4,4,2
+2026-11-22,Carter Bryant,SA,NO,20,4.2,2.0,0.7,0.7,8,3,0,2
+2026-11-22,Luke Kornet,SA,NO,10,4.8,4.1,1.3,0.0,0,3,0,0
+2026-11-22,Jordan McLaughlin,SA,NO,18,3.8,1.4,1.6,0.6,0,3,2,0
+2026-11-22,Paul George,BOS,SAC,37,17.0,4.9,3.6,2.6,19,8,5,2
+2026-11-22,Sam Hauser,BOS,SAC,31,7.9,3.0,1.1,2.0,14,6,2,4
+2026-11-22,Neemias Queta,BOS,SAC,30,9.7,7.0,1.6,0.1,15,7,1,1
+2026-11-22,Payton Pritchard,BOS,SAC,34,15.0,3.5,4.1,2.5,9,6,8,0
+2026-11-22,Hugo Gonzalez,BOS,SAC,17,4.0,2.8,0.6,0.5,5,4,1,1
+2026-11-22,Chris Cenac Jr.,BOS,SAC,12,4.0,1.7,0.7,0.4,2,3,0,0
+2026-11-22,Luka Garza,BOS,SAC,17,6.1,2.8,0.9,0.7,5,5,1,0
+2026-11-22,Mike Conley,BOS,SAC,18,2.5,0.8,1.3,0.5,19,4,2,4
+2026-11-22,Ron Harper Jr.,BOS,SAC,13,3.0,1.1,0.6,0.6,3,0,1,1
+2026-11-22,Baylor Scheierman,BOS,SAC,18,5.9,3.4,1.5,1.2,4,3,1,0
+2026-11-22,Domantas Sabonis,SAC,BOS,32,15.1,12.0,4.9,0.6,15,17,4,0
+2026-11-22,De'Andre Hunter,SAC,BOS,41,17.6,5.2,2.2,2.6,20,6,2,2
+2026-11-22,Keegan Murray,SAC,BOS,40,10.9,5.3,1.5,1.5,15,12,0,0
+2026-11-22,Zach LaVine,SAC,BOS,30,19.7,3.6,3.1,2.9,13,3,0,2
+2026-11-22,Darius Acuff Jr.,SAC,BOS,40,22.8,3.8,6.6,3.0,21,6,8,2
+2026-11-22,Precious Achiuwa,SAC,BOS,22,8.2,5.7,1.2,0.3,5,7,1,0
+2026-11-22,Malik Monk,SAC,BOS,10,8.5,1.7,2.6,1.3,3,0,1,0
+2026-11-22,Emanuel Sharp,SAC,BOS,16,5.0,1.5,0.9,1.0,3,0,0,1
