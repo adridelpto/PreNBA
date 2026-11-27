@@ -2,7 +2,7 @@ jugador,equipo,rating36,min_esperados,lesion
 Nikola Jokic,DEN,27.6,36.8,
 Luka Doncic,LAL,25.2,36.2,
 Shai Gilgeous-Alexander,OKC,26.3,33.9,
-Giannis Antetokounmpo,MIA,27.0,32.4,
+Giannis Antetokounmpo,MIA,27.0,32.4,Day-To-Day
 Victor Wembanyama,SA,25.1,30.5,
 Joel Embiid,PHI,23.7,32.1,Day-To-Day
 Anthony Davis,WSH,21.9,34.0,
@@ -14,28 +14,28 @@ Tyrese Maxey,PHI,18.8,36.1,
 LeBron James,PHI,20.7,32.7,
 Zion Williamson,NO,20.4,32.8,
 Jalen Brunson,NY,19.3,34.5,
-Cade Cunningham,DET,19.1,34.8,Day-To-Day
+Cade Cunningham,DET,19.1,34.8,Out
 Kevin Durant,HOU,19.9,33.4,
 Devin Booker,PHX,19.2,34.6,
 Trae Young,WSH,19.1,34.6,
 Tyrese Haliburton,IND,19.9,33.0,Out
 Anthony Edwards,MIN,19.2,33.8,Out
 Domantas Sabonis,SAC,19.1,33.5,
-Karl-Anthony Towns,NY,19.6,32.6,
+Karl-Anthony Towns,NY,19.6,32.6,Day-To-Day
 James Harden,CLE,18.5,33.9,
 Jimmy Butler III,GS,20.0,31.1,Out
 Franz Wagner,ORL,16.9,36.5,
 Jalen Johnson,ATL,17.8,34.1,
 Alperen Sengun,HOU,18.4,32.8,
 Paolo Banchero,ORL,17.3,34.8,Out
-Jaylen Brown,PHI,18.1,33.2,Day-To-Day
+Jaylen Brown,PHI,18.1,33.2,Out
 Cooper Flagg,DAL,17.8,33.3,
 Pascal Siakam,IND,18.1,32.4,
 Bam Adebayo,MIA,17.8,32.8,
-Damian Lillard,POR,19.5,29.9,
+Damian Lillard,POR,19.5,29.9,Out
 Austin Reaves,LAL,16.5,35.2,Out
 Scottie Barnes,TOR,16.8,34.4,
-Kyrie Irving,DAL,18.7,30.9,
+Kyrie Irving,DAL,18.7,30.9,Day-To-Day
 Julius Randle,BKN,16.9,33.5,
 Desmond Bane,ORL,16.3,34.7,
 Stephen Curry,GS,21.5,26.3,Out
@@ -55,7 +55,7 @@ Michael Porter Jr.,BKN,15.8,32.8,
 Dejounte Murray,NO,16.5,31.3,Out
 Amen Thompson,HOU,15.6,32.7,
 Trey Murphy III,NO,15.6,32.6,
-LaMelo Ball,MIN,17.9,28.4,Day-To-Day
+LaMelo Ball,MIN,17.9,28.4,Out
 Keyonte George,UTAH,15.3,33.1,
 De'Aaron Fox,SA,17.5,28.9,Day-To-Day
 Kevin Porter Jr.,ORL,15.2,33.2,
@@ -175,12 +175,12 @@ Moses Moody,GS,12.0,25.7,Out
 Collin Sexton,LAL,16.2,19.0,
 Tre Jones,CHI,15.8,19.4,
 Anfernee Simons,PHI,13.8,22.2,
-Kelly Oubre Jr.,IND,12.4,24.7,
+Kelly Oubre Jr.,IND,12.4,24.7,Day-To-Day
 Derrick Jones Jr.,LAC,11.0,27.8,
 Toumani Camara,POR,10.2,29.9,
 Tari Eason,HOU,12.6,24.2,
 Jerami Grant,MEM,13.6,22.3,Out
-Aaron Nesmith,IND,11.1,27.3,Day-To-Day
+Aaron Nesmith,IND,11.1,27.3,
 Cormac Ryan,MIL,12.3,24.6,
 Kel'el Ware,MIL,15.6,19.2,
 Bobby Portis,MIA,15.2,19.6,
@@ -200,7 +200,7 @@ Jordan Miller,LAC,12.7,22.1,Out
 Landry Shamet,NY,10.3,27.1,
 Meleek Thomas,CLE,12.1,23.0,
 Moritz Wagner,BKN,16.0,17.1,Out
-Mo Bamba,UTAH,12.8,21.3,
+Mo Bamba,UTAH,12.8,21.3,Day-To-Day
 Zaccharie Risacher,DAL,11.5,23.7,
 Terrence Shannon Jr.,MIN,11.9,22.9,
 Kris Dunn,LAC,10.6,25.5,
@@ -256,7 +256,7 @@ Joan Beringer,MIN,13.2,16.8,
 Trey Lyles,MIN,11.6,19.1,
 Marcus Smart,HOU,10.4,21.3,
 Caleb Martin,DAL,9.8,22.5,
-Isaiah Stewart,MEM,12.1,18.2,
+Isaiah Stewart,MEM,12.1,18.2,Day-To-Day
 Javonte Green,DET,11.4,19.3,
 Trendon Watford,NO,12.4,17.7,Out
 Khaman Maluach,PHX,11.7,18.7,
@@ -273,7 +273,7 @@ Tristan Vukcevic,WSH,15.2,13.7,Out
 Jarace Walker,IND,11.5,18.1,
 Royce O'Neale,CHA,10.2,20.1,
 Jay Huff,IND,14.0,14.6,
-Kasparas Jakucionis,MIL,11.6,17.6,
+Kasparas Jakucionis,MIL,11.6,17.6,Out
 Al Horford,GS,12.2,16.7,
 Bennedict Mathurin,NO,13.3,15.3,Out
 Jock Landale,ATL,13.2,15.4,Out
@@ -289,9 +289,9 @@ Jamison Battle,TOR,10.6,18.4,
 Isaiah Collier,UTAH,12.5,15.6,
 Kobe Sanders,LAC,9.5,20.3,
 Ben Sheppard,IND,9.0,21.4,Out
-Andre Drummond,NY,14.0,13.7,Day-To-Day
+Andre Drummond,NY,14.0,13.7,Out
 Will Richard,GS,9.8,19.5,
-Miles McBride,NY,11.1,17.2,Day-To-Day
+Miles McBride,NY,11.1,17.2,Out
 Orlando Robinson,CHI,10.9,17.5,
 Nikola Vucevic,ORL,16.7,11.4,
 Gary Payton II,GS,13.6,13.9,
@@ -382,10 +382,10 @@ Jordan McLaughlin,SA,11.4,11.0,
 Jonathan Isaac,ORL,12.5,10.0,Out
 Gabe Vincent,SAC,7.5,16.6,
 Jordan Clarkson,NY,12.7,9.8,Out
-Alijah Martin,TOR,10.1,12.2,
+Alijah Martin,TOR,10.1,12.2,Day-To-Day
 Ousmane Dieng,MIL,10.0,12.2,
 Sergio de Larrea,DAL,10.3,11.5,Out
-Noa Essengue,CHI,9.6,12.3,
+Noa Essengue,CHI,9.6,12.3,Day-To-Day
 Branden Carlson,POR,12.8,9.2,
 Hugo Gonzalez,BOS,8.8,13.3,
 Gary Trent Jr.,MIL,10.8,10.8,
